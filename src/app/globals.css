@@ -24,3 +24,121 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* --- CLASES PERSONALIZADAS DEL NAVBAR (EN ESPAÑOL) --- */
+
+.cabecera-principal {
+  @apply bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900 sticky top-0 z-50 text-white;
+}
+
+.contenedor-nav {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.fila-nav {
+  @apply flex items-center justify-between h-20;
+}
+
+.logo-completo {
+  @apply flex items-center gap-3;
+}
+
+.circulo-logo {
+  @apply relative flex items-center justify-center w-10 h-10 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 transition-all duration-300;
+}
+
+.logo-completo:hover .circulo-logo {
+  @apply bg-blue-600 text-white;
+}
+
+.textos-logo {
+  @apply flex flex-col;
+}
+
+.titulo-logo {
+  @apply text-xl font-black tracking-wider text-blue-400 uppercase leading-none transition-colors duration-300;
+}
+
+.logo-completo:hover .titulo-logo {
+  @apply text-white;
+}
+
+.subtitulo-logo {
+  @apply text-[8px] font-bold tracking-widest text-zinc-400 uppercase mt-0.5 transition-colors duration-300;
+}
+
+.logo-completo:hover .subtitulo-logo {
+  @apply text-zinc-200;
+}
+
+.enlaces-escritorio {
+  @apply hidden lg:flex items-center h-full;
+}
+
+.lista-enlaces {
+  @apply flex space-x-8 h-full;
+}
+
+.enlace-item {
+  @apply relative flex items-center h-full;
+}
+
+.enlace-texto {
+  @apply text-xs uppercase tracking-widest font-semibold transition-colors duration-200;
+}
+
+.enlace-activo {
+  @apply text-blue-400;
+}
+
+.enlace-inactivo {
+  @apply text-zinc-400 hover:text-white;
+}
+
+.barra-activa {
+  @apply absolute bottom-0 left-0 right-0 h-[2px] bg-blue-500 rounded-full;
+}
+
+.contenedor-boton {
+  @apply hidden lg:flex items-center;
+}
+
+.boton-reserva {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-md shadow-blue-600/20 active:scale-95;
+}
+
+.boton-menu-movil {
+  @apply flex lg:hidden;
+}
+
+.icono-menu-movil {
+  @apply text-zinc-400 hover:text-white focus:outline-none;
+}
+
+.menu-desplegable-movil {
+  @apply lg:hidden bg-zinc-950 border-t border-zinc-900 px-4 py-4 space-y-4;
+}
+
+.lista-movil {
+  @apply flex flex-col space-y-3;
+}
+
+.enlace-movil {
+  @apply text-sm uppercase tracking-wider font-semibold py-2;
+}
+
+.enlace-movil-activo {
+  @apply text-blue-400;
+}
+
+.enlace-movil-inactivo {
+  @apply text-zinc-400;
+}
+
+.pie-menu-movil {
+  @apply border-t border-zinc-900 pt-4 flex flex-col;
+}
+
+.boton-reserva-movil {
+  @apply bg-blue-600 text-white text-center py-3 rounded-lg text-xs uppercase tracking-widest font-bold;
+}
