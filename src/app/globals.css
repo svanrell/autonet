@@ -142,3 +142,184 @@ body {
 .boton-reserva-movil {
   @apply bg-blue-600 text-white text-center py-3 rounded-lg text-xs uppercase tracking-widest font-bold;
 }
+
+/* --- ESTILOS DE LA ANIMACIÓN CON SCROLL --- */
+
+.animacion-scroll-contenedor {
+  position: relative;
+  height: 350vh; /* Duración del scroll track */
+  background-color: #030712; /* bg-gray-950 */
+}
+
+.animacion-scroll-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animacion-scroll-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  object-fit: cover;
+}
+
+.animacion-scroll-capa-degradado {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(3, 7, 18, 0.1) 0%, rgba(3, 7, 18, 0.7) 100%);
+  background-image: linear-gradient(to top, #030712 0%, rgba(3, 7, 18, 0.3) 40%, rgba(3, 7, 18, 0.3) 60%, #030712 100%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.animacion-scroll-cargando {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cargando-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid rgba(59, 130, 246, 0.2);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spinner-spin 1s linear infinite;
+}
+
+@keyframes spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cargando-texto {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  animation: pulse-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-loading {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animacion-scroll-textos {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  pointer-events: none;
+  @apply max-w-4xl mx-auto px-6 text-center;
+}
+
+.animacion-scroll-frase {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  padding: 2rem;
+  background: rgba(3, 7, 18, 0.45);
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 650px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+.animacion-scroll-frase.activo {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.frase-categoria {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #3b82f6; /* text-blue-500 */
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.frase-titulo {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.frase-descripcion {
+  font-size: 1rem;
+  color: #d1d5db; /* text-gray-300 */
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Indicador de scroll */
+.scroll-indicador {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: bounce-scroll 2s infinite;
+  pointer-events: none;
+}
+
+.scroll-indicador-texto {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.scroll-indicador-flecha {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid #9ca3af;
+  border-bottom: 2px solid #9ca3af;
+  transform: rotate(45deg);
+}
+
+@keyframes bounce-scroll {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
