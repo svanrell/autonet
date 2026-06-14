@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/navbar";
 import ScrollAnimation from "@/components/animation/ScrollAnimation";
+import Footer from "@/components/layout/footer";
 
 export default function Principal() {
   return (
@@ -8,6 +9,7 @@ export default function Principal() {
       <main>
         <ScrollAnimation />
       </main>
+      <Footer />
     </>
   );
 }

@@ -323,3 +323,121 @@ body {
     transform: translate(-50%, 8px);
   }
 }
+
+/* --- ESTILOS DEL PIE DE PÁGINA (FOOTER) --- */
+
+.pie-principal {
+  @apply bg-zinc-950 text-zinc-300 border-t border-zinc-900 pt-16 pb-8;
+}
+
+.contenedor-footer {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.rejilla-footer {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12;
+}
+
+.columna-footer {
+  @apply flex flex-col;
+}
+
+.logo-completo-footer {
+  @apply flex items-center gap-3 mb-6;
+}
+
+.circulo-logo-footer {
+  @apply relative flex items-center justify-center w-9 h-9 rounded-full bg-white border border-blue-500/20 text-blue-400 transition-all duration-300;
+}
+
+.logo-completo-footer:hover .circulo-logo-footer {
+  @apply bg-blue-600 text-white;
+}
+
+.descripcion-marca {
+  @apply text-zinc-400 text-sm leading-relaxed mb-6;
+}
+
+.redes-sociales {
+  @apply flex gap-4;
+}
+
+.icono-red {
+  @apply w-9 h-9 rounded-full bg-zinc-900 hover:bg-blue-600 hover:text-white flex items-center justify-center text-zinc-400 transition-all duration-300;
+}
+
+.titulo-columna {
+  @apply text-white text-sm font-bold uppercase tracking-wider mb-6;
+}
+
+.lista-enlaces-footer {
+  @apply space-y-3;
+}
+
+.enlace-footer {
+  @apply text-zinc-400 hover:text-blue-400 text-sm transition-colors duration-200;
+}
+
+.horarios-footer {
+  @apply space-y-3;
+}
+
+.horario-item {
+  @apply flex justify-between text-sm border-b border-zinc-900/60 pb-2;
+}
+
+.dia-semana {
+  @apply text-zinc-400;
+}
+
+.horas {
+  @apply text-white font-medium;
+}
+
+.horas.cerrado {
+  @apply text-red-500 font-semibold;
+}
+
+.garantia-calidad {
+  @apply flex items-center gap-2.5 mt-6 p-3 rounded-lg bg-zinc-900/40 border border-zinc-900 text-xs text-zinc-400;
+}
+
+.contacto-footer {
+  @apply space-y-4;
+}
+
+.contacto-item {
+  @apply flex items-center gap-3 text-sm;
+}
+
+.contacto-item-dir {
+  @apply flex items-start gap-3 text-sm;
+}
+
+.icono-contacto {
+  @apply text-blue-500 flex-shrink-0;
+}
+
+.contacto-texto {
+  @apply text-zinc-400 hover:text-blue-400 transition-colors duration-200 leading-relaxed;
+}
+
+.barra-derechos {
+  @apply border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500;
+}
+
+.texto-derechos {
+  @apply text-center md:text-left;
+}
+
+.enlaces-legales {
+  @apply flex gap-3;
+}
+
+.enlace-legal {
+  @apply hover:text-zinc-300 transition-colors;
+}
+
+.separador-legal {
+  @apply text-zinc-800;
+}
