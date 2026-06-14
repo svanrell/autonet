@@ -31,7 +31,7 @@ export default function NavBar() {
                     {/* 1. LOGO */}
                     <Link href="/" className="logo-completo group">
                         <div className="circulo-logo">
-                            <Image src="/favicon.ico" alt="Autonet" width={40} height={40} />
+                            <Image src="/logo/logo.webp" alt="Autonet" width={40} height={40} />
                         </div>
                         <div className="textos-logo">
                             <span className="titulo-logo font-display">
@@ -52,9 +52,8 @@ export default function NavBar() {
                                     <li key={link.href} className="enlace-item">
                                         <Link
                                             href={link.href}
-                                            className={`enlace-texto ${
-                                                activo ? "enlace-activo" : "enlace-inactivo"
-                                            }`}
+                                            className={`enlace-texto ${activo ? "enlace-activo" : "enlace-inactivo"
+                                                }`}
                                         >
                                             {link.label}
                                         </Link>
@@ -100,9 +99,8 @@ export default function NavBar() {
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`enlace-movil ${
-                                        activo ? "enlace-movil-activo" : "enlace-movil-inactivo"
-                                    }`}
+                                    className={`enlace-movil ${activo ? "enlace-movil-activo" : "enlace-movil-inactivo"
+                                        }`}
                                 >
                                     {link.label}
                                 </Link>
