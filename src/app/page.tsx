@@ -13,7 +13,7 @@ export default function Principal() {
     <>
       <Navbar />
       <main>
-        <ScrollAnimation />
+        <h1>Bienvenido a Autonet</h1>
       </main>
       <Footer />
     </>
