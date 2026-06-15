@@ -40,7 +40,7 @@ export default function ContactoClient() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
                         {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
-                        <div className="lg:col-span-5 flex flex-col justify-between gap-6 h-full">
+                        <div className="lg:col-span-5 flex flex-col justify-start gap-4">
                             {/* Tarjeta 1: Escríbenos */}
                             <a 
                                 href="mailto:info@autonet.es" 
