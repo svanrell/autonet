@@ -39,51 +39,68 @@ export default function ContactoClient() {
                     {/* Rejilla de Dos Columnas */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
-                        {/* Columna Izquierda: Información de contacto */}
-                        <div className="lg:col-span-5 flex flex-col justify-between p-8 md:p-10 rounded-2xl bg-zinc-900/40 border border-zinc-900 backdrop-blur-md">
-                            <div>
-                                <h2 className="text-2xl font-bold mb-8">Información Directa</h2>
-                                <ul className="space-y-8">
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-                                            <Phone size={18} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Llámanos</p>
-                                            <a href="tel:+34123456789" className="text-white hover:text-blue-400 font-semibold transition-colors">
-                                                +34 123 456 789
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-                                            <Mail size={18} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Escríbenos</p>
-                                            <a href="mailto:info@autonet.es" className="text-white hover:text-blue-400 font-semibold transition-colors">
-                                                info@autonet.es
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-                                            <MapPin size={18} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">Visítanos</p>
-                                            <p className="text-zinc-300 text-sm leading-relaxed">
-                                                Calle de la Limpieza 123<br />
-                                                08001 Barcelona, España
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                        {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
+                        <div className="lg:col-span-5 flex flex-col justify-between gap-6 h-full">
+                            {/* Tarjeta 1: Escríbenos */}
+                            <a 
+                                href="mailto:info@autonet.es" 
+                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer"
+                            >
+                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                    <Mail size={24} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                        Escríbenos
+                                    </p>
+                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                        info@autonet.es
+                                    </h3>
+                                    <p className="text-xs text-zinc-500 mt-1">
+                                        Respuesta en 2-4 horas
+                                    </p>
+                                </div>
+                            </a>
 
-                            {/* Pequeño mapa de decoración o texto informativo */}
-                            <div className="border-t border-zinc-900 pt-8 mt-8 text-xs text-zinc-500">
-                                <p>Te responderemos en un plazo máximo de 24 horas laborables.</p>
+                            {/* Tarjeta 2: Llámanos */}
+                            <a 
+                                href="tel:+34123456789" 
+                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer"
+                            >
+                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                    <Phone size={24} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                        Llámanos
+                                    </p>
+                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                        +34 123 456 789
+                                    </h3>
+                                    <p className="text-xs text-zinc-500 mt-1">
+                                        Disponible L-V 9:00 - 19:00
+                                    </p>
+                                </div>
+                            </a>
+
+                            {/* Tarjeta 3: Visítanos */}
+                            <div 
+                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500"
+                            >
+                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                    <MapPin size={24} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                        Visítanos
+                                    </p>
+                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                        Calle de la Limpieza 123, BCN
+                                    </h3>
+                                    <p className="text-xs text-zinc-500 mt-1">
+                                        Servicio con cita previa
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
