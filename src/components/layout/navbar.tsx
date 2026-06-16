@@ -70,7 +70,7 @@ export default function NavBar() {
 
                     {/* 3. BOTÓN RESERVA */}
                     <div className="contenedor-boton">
-                        <Link href="/reserva" className="boton-reserva">
+                        <Link href="/reservas" className="boton-reserva">
                             Reserva
                         </Link>
                     </div>
@@ -110,7 +110,7 @@ export default function NavBar() {
 
                     <div className="pie-menu-movil">
                         <Link
-                            href="/reserva"
+                            href="/reservas"
                             onClick={() => setIsOpen(false)}
                             className="boton-reserva-movil"
                         >

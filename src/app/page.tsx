@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/navbar";
 import ScrollAnimation from "@/components/animation/ScrollAnimation";
 import Footer from "@/components/layout/footer";
+import { HeroDemo } from "@/components/layout/presentacion-hero";
 
 export const metadata: Metadata = {
   title: "Autonet - Limpieza de Coches",
@@ -13,7 +14,8 @@ export default function Principal() {
     <>
       <Navbar />
       <main>
-        <h1>Bienvenido a Autonet</h1>
+        < HeroDemo />
+        <ScrollAnimation />
       </main>
       <Footer />
     </>

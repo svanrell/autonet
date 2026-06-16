@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Montserrat, Outfit } from "next/font/google";
+import { Montserrat, Outfit, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${montserrat.variable} ${outfit.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", montserrat.variable, outfit.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

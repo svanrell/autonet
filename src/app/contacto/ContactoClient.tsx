@@ -20,43 +20,43 @@ export default function ContactoClient() {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen bg-zinc-950 text-white pt-32 pb-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <main className="contacto-seccion">
+                <div className="contacto-contenedor">
 
                     {/* Cabecera de la página */}
-                    <div className="text-center mb-16">
-                        <span className="text-xs font-bold uppercase tracking-widest text-blue-500">
+                    <div className="contacto-cabecera">
+                        <span className="contacto-subtitulo">
                             ¿Hablamos?
                         </span>
-                        <h1 className="text-4xl md:text-5xl font-black mt-3 mb-4 font-display uppercase tracking-tight">
+                        <h1 className="contacto-titulo">
                             Ponte en contacto
                         </h1>
-                        <p className="text-zinc-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                        <p className="contacto-descripcion">
                             ¿Tienes alguna duda sobre nuestros servicios de detallado o quieres reservar un lavado especial? Escríbenos y te responderemos lo antes posible.
                         </p>
                     </div>
 
                     {/* Rejilla de Dos Columnas */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                    <div className="contacto-rejilla">
 
                         {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
-                        <div className="lg:col-span-5 flex flex-col justify-start gap-4">
+                        <div className="contacto-columna-tarjetas">
                             {/* Tarjeta 1: Escríbenos */}
                             <a 
                                 href="mailto:info@autonet.es" 
-                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer"
+                                className="group contacto-tarjeta-enlace"
                             >
-                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                <div className="contacto-tarjeta-icono">
                                     <Mail size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                    <p className="contacto-tarjeta-categoria">
                                         Escríbenos
                                     </p>
-                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                    <h3 className="contacto-tarjeta-valor">
                                         info@autonet.es
                                     </h3>
-                                    <p className="text-xs text-zinc-500 mt-1">
+                                    <p className="contacto-tarjeta-detalles">
                                         Respuesta en 2-4 horas
                                     </p>
                                 </div>
@@ -65,19 +65,19 @@ export default function ContactoClient() {
                             {/* Tarjeta 2: Llámanos */}
                             <a 
                                 href="tel:+34123456789" 
-                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer"
+                                className="group contacto-tarjeta-enlace"
                             >
-                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                <div className="contacto-tarjeta-icono">
                                     <Phone size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                    <p className="contacto-tarjeta-categoria">
                                         Llámanos
                                     </p>
-                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                    <h3 className="contacto-tarjeta-valor">
                                         +34 123 456 789
                                     </h3>
-                                    <p className="text-xs text-zinc-500 mt-1">
+                                    <p className="contacto-tarjeta-detalles">
                                         Disponible L-V 9:00 - 19:00
                                     </p>
                                 </div>
@@ -85,19 +85,19 @@ export default function ContactoClient() {
 
                             {/* Tarjeta 3: Visítanos */}
                             <div 
-                                className="group relative flex items-center gap-6 p-6 rounded-2xl bg-[#090a16]/40 border border-zinc-900 hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500"
+                                className="group contacto-tarjeta-enlace"
                             >
-                                <div className="w-14 h-14 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-center flex-shrink-0 text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-300 shadow-inner">
+                                <div className="contacto-tarjeta-icono">
                                     <MapPin size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-xs uppercase tracking-wider font-semibold text-zinc-400 group-hover:text-blue-300 transition-colors">
+                                    <p className="contacto-tarjeta-categoria">
                                         Visítanos
                                     </p>
-                                    <h3 className="text-lg font-bold text-white mt-1 group-hover:text-blue-400 transition-colors truncate">
+                                    <h3 className="contacto-tarjeta-valor">
                                         Calle de la Limpieza 123, BCN
                                     </h3>
-                                    <p className="text-xs text-zinc-500 mt-1">
+                                    <p className="contacto-tarjeta-detalles">
                                         Servicio con cita previa
                                     </p>
                                 </div>
@@ -105,29 +105,29 @@ export default function ContactoClient() {
                         </div>
 
                         {/* Columna Derecha: Formulario de Contacto */}
-                        <div className="lg:col-span-7 p-8 md:p-10 rounded-2xl bg-zinc-900/40 border border-zinc-900 backdrop-blur-md">
+                        <div className="contacto-formulario-contenedor">
                             <h2 className="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
 
                             {enviado ? (
-                                <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                                    <div className="w-16 h-16 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 flex items-center justify-center mb-6">
+                                <div className="contacto-exito-contenedor">
+                                    <div className="contacto-exito-icono">
                                         <Send size={24} />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">¡Mensaje enviado con éxito!</h3>
-                                    <p className="text-zinc-400 text-sm max-w-sm">
+                                    <h3 className="contacto-exito-titulo">¡Mensaje enviado con éxito!</h3>
+                                    <p className="contacto-exito-descripcion">
                                         Muchas gracias por contactar con Autonet. Nos pondremos en contacto contigo muy pronto.
                                     </p>
                                     <button
                                         onClick={() => setEnviado(false)}
-                                        className="mt-6 text-xs text-blue-400 hover:text-white uppercase tracking-wider font-bold"
+                                        className="contacto-exito-boton"
                                     >
                                         Enviar otro mensaje
                                     </button>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
+                                <form onSubmit={handleSubmit} className="contacto-formulario">
                                     <div>
-                                        <label htmlFor="nombre" className="block text-xs uppercase tracking-wider font-bold text-zinc-400 mb-2">
+                                        <label htmlFor="nombre" className="contacto-etiqueta">
                                             Nombre Completo
                                         </label>
                                         <input
@@ -136,13 +136,13 @@ export default function ContactoClient() {
                                             required
                                             value={nombre}
                                             onChange={(e) => setNombre(e.target.value)}
-                                            className="w-full bg-zinc-950/60 border border-zinc-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white transition-all"
+                                            className="contacto-entrada"
                                             placeholder="Ej. Juan Pérez"
                                         />
                                     </div>
 
                                     <div>
-                                        <label htmlFor="email" className="block text-xs uppercase tracking-wider font-bold text-zinc-400 mb-2">
+                                        <label htmlFor="email" className="contacto-etiqueta">
                                             Correo Electrónico
                                         </label>
                                         <input
@@ -151,13 +151,13 @@ export default function ContactoClient() {
                                             required
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full bg-zinc-950/60 border border-zinc-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white transition-all"
+                                            className="contacto-entrada"
                                             placeholder="juan@ejemplo.com"
                                         />
                                     </div>
 
                                     <div>
-                                        <label htmlFor="mensaje" className="block text-xs uppercase tracking-wider font-bold text-zinc-400 mb-2">
+                                        <label htmlFor="mensaje" className="contacto-etiqueta">
                                             Mensaje
                                         </label>
                                         <textarea
@@ -166,14 +166,14 @@ export default function ContactoClient() {
                                             rows={5}
                                             value={mensaje}
                                             onChange={(e) => setMensaje(e.target.value)}
-                                            className="w-full bg-zinc-950/60 border border-zinc-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white transition-all resize-none"
+                                            className="contacto-entrada resize-none"
                                             placeholder="Cuéntanos en qué podemos ayudarte..."
                                         />
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow-md shadow-blue-600/20 flex items-center justify-center gap-2 active:scale-[0.98]"
+                                        className="contacto-boton-enviar"
                                     >
                                         <span>Enviar Mensaje</span>
                                         <Send size={12} />
