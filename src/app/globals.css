@@ -171,8 +171,10 @@
 
 .animacion-scroll-contenedor {
   position: relative;
-  height: 350vh; /* Duración del scroll track */
-  background-color: #030712; /* bg-gray-950 */
+  height: 350vh;
+  /* Duración del scroll track */
+  background-color: #030712;
+  /* bg-gray-950 */
 }
 
 .animacion-scroll-sticky {
@@ -239,9 +241,12 @@
 }
 
 @keyframes pulse-loading {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
@@ -287,7 +292,8 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.25em;
-  color: #3b82f6; /* text-blue-500 */
+  color: #3b82f6;
+  /* text-blue-500 */
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
@@ -303,7 +309,8 @@
 
 .frase-descripcion {
   font-size: 1rem;
-  color: #d1d5db; /* text-gray-300 */
+  color: #d1d5db;
+  /* text-gray-300 */
   line-height: 1.6;
   font-weight: 400;
 }
@@ -340,9 +347,12 @@
 }
 
 @keyframes bounce-scroll {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, 0);
   }
+
   50% {
     transform: translate(-50%, 8px);
   }
@@ -469,44 +479,61 @@
 /* --- CLASES PERSONALIZADAS DE LA PORTADA (EN ESPAÑOL) --- */
 
 .portada-seccion {
-  @apply w-full;
+  @apply w-full relative overflow-hidden bg-zinc-950 text-white py-24 md:py-32;
+  /* Deep radial glow behind the content */
+  background: radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.15) 0%, rgba(9, 9, 11, 0) 65%), #09090b;
+}
+
+.portada-seccion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.2), transparent);
 }
 
 .portada-contenedor {
-  @apply container mx-auto px-4;
+  @apply container mx-auto px-6 relative z-10;
 }
 
 .portada-contenido {
-  @apply flex gap-8 py-20 lg:py-40 items-center justify-center flex-col;
+  @apply flex gap-8 items-center justify-center flex-col;
 }
 
 .portada-grupo-textos {
-  @apply flex gap-4 flex-col items-center;
+  @apply flex gap-6 flex-col items-center w-full;
 }
 
 .portada-titulo {
-  @apply text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-normal flex flex-col items-center;
+  @apply text-5xl sm:text-7xl md:text-8xl lg:text-9xl max-w-5xl tracking-tighter text-center font-extrabold flex flex-col items-center leading-none;
 }
 
 .portada-texto-destacado {
-  @apply text-blue-600 dark:text-blue-400;
+  /* Elegant gradient text */
+  @apply bg-linear-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent font-black tracking-tight;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.25));
 }
 
 .portada-caja-animacion {
-  @apply relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1;
+  @apply relative flex w-full justify-center overflow-hidden text-center h-[1.4em] md:pb-2 md:pt-1;
 }
 
 .portada-palabra-animada {
-  @apply absolute font-semibold;
+  @apply absolute font-black bg-linear-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent uppercase tracking-wider text-4xl sm:text-6xl md:text-7xl lg:text-8xl;
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
 }
 
+
 .portada-descripcion {
-  @apply text-lg md:text-xl leading-relaxed tracking-tight text-zinc-400 max-w-2xl text-center;
+  @apply text-base md:text-lg leading-relaxed tracking-normal text-zinc-400 max-w-2xl text-center font-normal mt-2;
 }
 
 .portada-botones {
-  @apply flex flex-row gap-3;
+  @apply flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4;
 }
+
 
 /* --- CLASES PERSONALIZADAS DE CONTACTO (EN ESPAÑOL) --- */
 
@@ -675,9 +702,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }

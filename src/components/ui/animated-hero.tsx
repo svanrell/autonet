@@ -44,7 +44,7 @@ function Hero({ badge, title, subtitle, actions }: HeroProps) {
                   <motion.span
                     key={index}
                     className="portada-palabra-animada"
-                    initial={{ opacity: 0, y: "-100" }}
+                    initial={{ opacity: 0, y: -100 }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
                       titleNumber === index
