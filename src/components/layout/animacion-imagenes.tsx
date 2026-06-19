@@ -51,7 +51,7 @@ const velocity = [3, -3]
 function ScrollVelocityDemo() {
     return (
         <div className="w-full">
-            <div className="flex flex-col space-y-5 py-10">
+            <div className="flex flex-col gap-y-12 px-30     py-10">
                 {velocity.map((v, index) => (
                     <ScrollVelocity key={index} velocity={v}>
                         {images.map(({ title, thumbnail }) => (

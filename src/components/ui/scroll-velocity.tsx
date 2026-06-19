@@ -53,11 +53,11 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
     return (
       <div
         ref={ref}
-        className={cn("relative m-0 flex flex-nowrap overflow-hidden whitespace-nowrap leading-[0.8] tracking-[-2px]", className)}
+        className={cn("relative flex flex-nowrap overflow-hidden whitespace-nowrap leading-[0.8] tracking-[-2px]", className)}
         {...props}
       >
         <motion.div
-          className="flex flex-row flex-nowrap whitespace-nowrap text-xl font-semibold uppercase *:mr-6 *:block md:text-2xl xl:text-4xl"
+          className="flex flex-row flex-nowrap whitespace-nowrap text-xl font-semibold uppercase *:mr-12 *:block md:text-2xl xl:text-4xl"
           style={{ x }}
         >
           {typeof children === "string" ? (

@@ -17,7 +17,6 @@ export default function Principal() {
       <main>
         < HeroDemo />
         < ScrollVelocityDemo />
-        <ScrollAnimation />
       </main>
       <Footer />
     </>
