@@ -13,7 +13,7 @@ interface HeroProps {
 function Hero({ badge, title, subtitle, actions }: HeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["increíble", "innovador", "fantástico", "único", "moderno"],
+    () => ["experto", "a mano", "puntual", "confiable"],
     []
   );
 
@@ -49,13 +49,13 @@ function Hero({ badge, title, subtitle, actions }: HeroProps) {
                     animate={
                       titleNumber === index
                         ? {
-                            y: 0,
-                            opacity: 1,
-                          }
+                          y: 0,
+                          opacity: 1,
+                        }
                         : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
+                          y: titleNumber > index ? -150 : 150,
+                          opacity: 0,
+                        }
                     }
                   >
                     {titleText}

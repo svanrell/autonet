@@ -5,44 +5,28 @@ import Image from "next/image"
 
 const images = [
     {
-        title: "Moonbeam",
-        thumbnail: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=40&w=640",
+        title: "Coche 1",
+        thumbnail: "/images/coche1.webp",
     },
     {
-        title: "Cursor",
-        thumbnail: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=40&w=640",
+        title: "Coche 2",
+        thumbnail: "/images/coche2.webp",
     },
     {
-        title: "Rogue",
-        thumbnail: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=40&w=640",
+        title: "Coche 3",
+        thumbnail: "/images/coche3.webp",
     },
     {
-        title: "Editorially",
-        thumbnail: "https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?q=80&w=640",
+        title: "Coche 4",
+        thumbnail: "/images/coche4.webp",
     },
     {
-        title: "Editrix AI",
-        thumbnail: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=640",
+        title: "Coche 5",
+        thumbnail: "/images/coche5.webp",
     },
     {
-        title: "Moonbeam 2",
-        thumbnail: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=40&w=640",
-    },
-    {
-        title: "Cursor 2",
-        thumbnail: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=40&w=640",
-    },
-    {
-        title: "Rogue 2",
-        thumbnail: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=40&w=640",
-    },
-    {
-        title: "Editorially 2",
-        thumbnail: "https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?q=80&w=640",
-    },
-    {
-        title: "Editrix AI 2",
-        thumbnail: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=640",
+        title: "Coche 6",
+        thumbnail: "/images/coche6.webp",
     },
 ]
 
@@ -69,7 +53,6 @@ function ScrollVelocityDemo() {
                         ))}
                     </ScrollVelocity>
                 ))}
-                <ScrollVelocity velocity={5}>You can also use a text!</ScrollVelocity>
             </div>
         </div>
     )
