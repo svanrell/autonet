@@ -55,9 +55,6 @@ export default function Footer() {
                                 <Link href="/servicios" className="enlace-footer">Servicios</Link>
                             </li>
                             <li>
-                                <Link href="/proceso" className="enlace-footer">El Proceso</Link>
-                            </li>
-                            <li>
                                 <Link href="/galeria" className="enlace-footer">Galería</Link>
                             </li>
                             <li>
@@ -105,7 +102,7 @@ export default function Footer() {
                                 <a href="mailto:info@autonet.es" className="contacto-texto">info@autonet.es</a>
                             </li>
                             <li className="contacto-item-dir">
-                                <MapPin size={16} className="icono-contacto flex-shrink-0 mt-1" />
+                                <MapPin size={16} className="icono-contacto shrink-0 mt-1" />
                                 <span className="contacto-texto">
                                     Calle de la Limpieza 123<br />
                                     08001 Barcelona, España
