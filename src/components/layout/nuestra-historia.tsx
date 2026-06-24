@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 export default function NuestraHistoria() {
     return (
         <section className="py-24 bg-zinc-950/20 relative overflow-hidden border-t border-zinc-900/60">
@@ -29,6 +32,12 @@ export default function NuestraHistoria() {
                             <p>
                                 Entendemos que tu coche es una de tus mayores inversiones y una parte esencial de tu día a día. Nuestro equipo de apasionados del motor trata cada automóvil como si fuera propio, combinando técnicas artesanales meticulosas con fórmulas poliméricas y nanotecnología avanzada. El resultado es un acabado con efecto espejo y un interior que recupera el tacto y el aroma a nuevo.
                             </p>
+                        </div>
+                        <div className="servicios-inicio">
+                            <Link href="/servicios" className="boton-servicios-secundario group">
+                                Ver Todos los Servicios
+                                <span className="arrow-icon">→</span>
+                            </Link>
                         </div>
                     </div>
 

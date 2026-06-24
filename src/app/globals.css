@@ -742,6 +742,23 @@
     opacity: 1;
   }
 }
+/* --- CLASES DE SERVICIOS SECUNDARIOS EN INICIO --- */
+
+.servicios-inicio {
+  @apply pt-6 flex justify-start;
+}
+
+.boton-servicios-secundario {
+  @apply inline-flex items-center gap-2 bg-zinc-900/40 hover:bg-zinc-900/80 text-zinc-300 hover:text-white font-bold tracking-wider uppercase text-[10px] px-6 py-4 rounded-xl border border-zinc-800/80 hover:border-blue-500/50 shadow-md shadow-black/30 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-xs transition-all duration-300 cursor-pointer;
+}
+
+.boton-servicios-secundario .arrow-icon {
+  @apply transition-transform duration-300 ease-in-out text-sm font-semibold;
+}
+
+.boton-servicios-secundario:hover .arrow-icon {
+  @apply translate-x-1.5 text-blue-400;
+}
 
 :root {
   --background: oklch(1 0 0);
