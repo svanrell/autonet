@@ -1,16 +1,13 @@
-"use client";
+import type { Metadata } from "next";
+import ServiciosClient from "./ServicioClient";
 
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+export const metadata: Metadata = {
+    title: "Servicios - Autonet",
+    description: "Servicios que ofrece Autonet"
+};
 
 export default function Servicios() {
     return (
-        <>
-            <Navbar />
-            <main>
-                <h1>Servicios</h1>
-            </main>
-            <Footer />
-        </>
+        <ServiciosClient />
     );
 }
