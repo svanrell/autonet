@@ -43,7 +43,7 @@ export default function ServiciosClient() {
                 <div className="contenedor-principal-servicios">
                     <div className="contenedor-servicios">
                         <h1>Nuestros Servicios</h1>
-                        <p>En Autonet, nos esforzamos por ofrecer servicios de la más alta calidad para satisfacer todas las necesidades de nuestros clientes. A continuación, te presentamos una descripción detallada de nuestros servicios:</p>
+                        <p>En Autonet, nos esforzamos por ofrecer servicios de la más alta calidad para satisfacer todas las necesidades de nuestros clientes. A continuación, te presentamos nuestros servicios:</p>
                     </div>
                     <div className="contenedor-servicios-tipos">
                         {servicios.map((servicio, index) => {
@@ -61,8 +61,13 @@ export default function ServiciosClient() {
                         })}
                     </div>
                     <div className="contenedor-boton-reserva-servicios">
-                        <h3>¿Listo para reservar?</h3>
-                        <Link href="/reservas" className="boton-reserva">Reservar</Link>
+                        <div className="contenedor-boton-reserva-servicios-contenido">
+                            <h1>¿Listo para reservar?</h1>
+                            <p>Reserva tu cita online en menos de 2 minutos y experimenta el verdadero detallado automotriz.</p>
+                            <Link href="/reservas" className="boton-reserva">Reservar Cita</Link>
+                        </div>
+                        <div className="glow-blob-1" />
+                        <div className="glow-blob-2" />
                     </div>
                 </div>
             </main>
