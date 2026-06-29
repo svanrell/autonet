@@ -2,21 +2,24 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import Iframe from "../ui/iframe";
+
 import {
     Mail,
     Phone,
-    MapPin,
     ShieldCheck
 } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [hasError, sethasError] = useState(false);
 
     return (
         <footer className="pie-principal">
             <div className="contenedor-footer">
                 <div className="rejilla-footer">
-                    
+
                     {/* COLUMNA 1: INFO DE MARCA */}
                     <div className="columna-footer info-marca">
                         <Link href="/" className="logo-completo-footer group">
@@ -33,13 +36,13 @@ export default function Footer() {
                         </p>
                         <div className="redes-sociales">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="icono-red" aria-label="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
                             </a>
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="icono-red" aria-label="Facebook">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
                             </a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="icono-red" aria-label="Twitter">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg>
                             </a>
                         </div>
                     </div>
@@ -101,14 +104,21 @@ export default function Footer() {
                                 <Mail size={16} className="icono-contacto" />
                                 <a href="mailto:info@autonet.es" className="contacto-texto">info@autonet.es</a>
                             </li>
-                            <li className="contacto-item-dir">
-                                <MapPin size={16} className="icono-contacto shrink-0 mt-1" />
-                                <span className="contacto-texto">
-                                    Calle de la Limpieza 123<br />
-                                    08001 Barcelona, España
-                                </span>
-                            </li>
                         </ul>
+                        {hasError ? (
+                            <div className="text-red-400 text-xs mt-4 border border-red-500/20 bg-red-950/20 p-3 rounded-lg text-center">
+                                Error al cargar el mapa
+                            </div>
+                        ) : (
+                            <Iframe
+                                url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d933.4598808871987!2d2.63304404042323!3d39.57862030261687!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129792622c3d74ef%3A0x46bb960d12573091!2sAuto%20Net!5e0!3m2!1ses!2ses!4v1782724161860!5m2!1ses!2ses"
+                                containerClassName="mapaAutonet"
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                onError={() => sethasError(true)}
+                            />
+                        )}
                     </div>
 
                 </div>

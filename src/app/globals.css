@@ -456,6 +456,10 @@
   @apply text-zinc-400 hover:text-blue-400 transition-colors duration-200 leading-relaxed;
 }
 
+.mapaAutonet {
+  @apply h-36 w-full mt-4;
+}
+
 .barra-derechos {
   @apply border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500;
 }
