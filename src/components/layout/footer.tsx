@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import Iframe from "../ui/iframe";
 
 import {
@@ -13,7 +12,6 @@ import {
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
-    const [hasError, sethasError] = useState(false);
 
     return (
         <footer className="pie-principal">
@@ -105,20 +103,13 @@ export default function Footer() {
                                 <a href="mailto:info@autonet.es" className="contacto-texto">info@autonet.es</a>
                             </li>
                         </ul>
-                        {hasError ? (
-                            <div className="text-red-400 text-xs mt-4 border border-red-500/20 bg-red-950/20 p-3 rounded-lg text-center">
-                                Error al cargar el mapa
-                            </div>
-                        ) : (
-                            <Iframe
-                                url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d933.4598808871987!2d2.63304404042323!3d39.57862030261687!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129792622c3d74ef%3A0x46bb960d12573091!2sAuto%20Net!5e0!3m2!1ses!2ses!4v1782724161860!5m2!1ses!2ses"
-                                containerClassName="mapaAutonet"
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                onError={() => sethasError(true)}
-                            />
-                        )}
+                        <Iframe
+                            url="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d933.4598808871987!2d2.63304404042323!3d39.57862030261687!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129792622c3d74ef%3A0x46bb960d12573091!2sAuto%20Net!5e0!3m2!1ses!2ses!4v1782724161860!5m2!1ses!2ses"
+                            containerClassName="mapaAutonet"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                        />
                     </div>
 
                 </div>

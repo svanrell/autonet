@@ -36,9 +36,8 @@ export default function Iframe({
         width="100%"
         height="100%"
         onLoad={() => setIsLoading(false)}
-        className={`block border-0 transition-opacity duration-300 ${
-          isLoading ? "opacity-0" : "opacity-100"
-        } ${className}`}
+        className={`block border-0 transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"
+          } ${className}`}
         {...iframeProps}
       />
     </div>
