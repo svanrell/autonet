@@ -4,9 +4,6 @@ import React, { useState, useEffect } from "react";
 import NavBar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { 
-  Car, 
-  Sparkles, 
-  Clock, 
   User, 
   Phone, 
   Mail, 
@@ -19,50 +16,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-
-interface Service {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  duration: string;
-  icon: React.ComponentType<any>;
-}
-
-const services: Service[] = [
-  {
-    id: "exterior",
-    name: "Limpieza Exterior",
-    description: "Lavado a mano ecológico, secado con microfibra, limpieza profunda de llantas y acondicionamiento de neumáticos.",
-    price: 25,
-    duration: "45 min",
-    icon: Car
-  },
-  {
-    id: "interior",
-    name: "Limpieza Interior",
-    description: "Aspirado completo de alfombras y asientos, limpieza de plásticos, salpicadero, cristales y desinfección de conductos.",
-    price: 35,
-    duration: "60 min",
-    icon: Sparkles
-  },
-  {
-    id: "tapiceria",
-    name: "Limpieza de Tapicerías",
-    description: "Lavado con inyección y extracción para eliminar manchas difíciles en asientos, alfombrillas e hidratación de tapicería.",
-    price: 60,
-    duration: "90 min",
-    icon: Clock
-  },
-  {
-    id: "premium",
-    name: "Detallado Premium (Full)",
-    description: "Tratamiento completo exterior e interior con descontaminado de pintura, encerado cerámico y tratamiento protector de plásticos.",
-    price: 120,
-    duration: "180 min",
-    icon: Sparkles
-  }
-];
+import { services, type Service } from "@/data/services";
 
 const timeSlots = {
   morning: ["09:00", "10:30", "12:00"],
