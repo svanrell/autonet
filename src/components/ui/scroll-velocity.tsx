@@ -17,10 +17,11 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
     const { scrollY } = useScroll()
     const scrollVelocity = useVelocity(scrollY)
     const smoothVelocity = useSpring(scrollVelocity, {
-      damping: 50,
-      stiffness: 100,
+      damping: 60,
+      stiffness: 80,
+      mass: 0.8
     })
-    const velocityFactor = useTransform(smoothVelocity, [0, 10000], [0, 5], {
+    const velocityFactor = useTransform(smoothVelocity, [0, 8000], [0, 5], {
       clamp,
     })
 
@@ -40,7 +41,9 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
     })
 
     function move(delta: number) {
-      let moveBy = directionFactor.current * velocity * (delta / 1000)
+      // Limit delta to prevent massive jumps on frame drops
+      const safeDelta = Math.min(delta, 32)
+      let moveBy = directionFactor.current * velocity * (safeDelta / 1000)
       if (velocityFactor.get() < 0) {
         directionFactor.current = -1
       } else if (velocityFactor.get() > 0) {
@@ -67,7 +70,13 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
               ))}
             </>
           ) : (
-            children
+            <>
+              {Array.from({ length: 4 }).map((_, idx) => (
+                <React.Fragment key={idx}>
+                  {children}
+                </React.Fragment>
+              ))}
+            </>
           )}
         </motion.div>
       </div>
