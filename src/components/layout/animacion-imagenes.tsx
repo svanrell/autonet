@@ -47,6 +47,7 @@ function ScrollVelocityDemo() {
                                     src={thumbnail}
                                     alt={title}
                                     fill
+                                    sizes="(max-width: 768px) 144px, (max-width: 1200px) 192px, 288px"
                                     className="h-full w-full object-cover object-center"
                                 />
                             </div>

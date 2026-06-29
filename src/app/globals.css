@@ -933,3 +933,166 @@
 .reserva-testimonios-desc {
   @apply text-zinc-400 text-sm md:text-base leading-relaxed mb-4;
 }
+
+/* --- CLASES PERSONALIZADAS DE RESERVAS (EN ESPAÑOL) --- */
+
+.contenedor-principal-reservas {
+  @apply min-h-screen bg-zinc-950 text-white pt-32 pb-24 relative overflow-hidden;
+}
+
+.glow-reservas-1 {
+  @apply absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none;
+}
+
+.glow-reservas-2 {
+  @apply absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none;
+}
+
+.cabecera-reservas {
+  @apply text-center mb-12 max-w-3xl mx-auto;
+}
+
+.titulo-reservas {
+  @apply text-4xl md:text-5xl font-black font-display uppercase tracking-tight mb-4 bg-clip-text text-transparent bg-linear-to-r from-white via-zinc-100 to-blue-400;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.15));
+}
+
+.descripcion-reservas {
+  @apply text-zinc-400 text-sm md:text-base leading-relaxed;
+}
+
+.reserva-contenedor-pasos {
+  @apply max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-zinc-900/40 border border-zinc-900/80 backdrop-blur-md relative z-10;
+}
+
+.reserva-pasos-cabecera {
+  @apply flex justify-between items-center mb-8 border-b border-zinc-900/80 pb-6;
+}
+
+.reserva-paso-indicador {
+  @apply flex items-center gap-2;
+}
+
+.reserva-paso-numero {
+  @apply w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300;
+}
+
+.reserva-paso-numero.activo {
+  @apply bg-blue-600 text-white border border-blue-500/20 shadow-md shadow-blue-600/25;
+}
+
+.reserva-paso-numero.completado {
+  @apply bg-emerald-600 text-white border border-emerald-500/20;
+}
+
+.reserva-paso-numero.inactivo {
+  @apply bg-zinc-950 border border-zinc-800 text-zinc-500;
+}
+
+.reserva-paso-texto {
+  @apply text-xs font-bold uppercase tracking-wider hidden sm:inline;
+}
+
+.reserva-paso-texto.activo {
+  @apply text-white;
+}
+
+.reserva-paso-texto.inactivo {
+  @apply text-zinc-600;
+}
+
+.reserva-servicios-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.reserva-servicio-tarjeta {
+  @apply p-5 rounded-xl bg-zinc-950/60 border border-zinc-900/80 cursor-pointer hover:border-blue-500/40 transition-all duration-300 flex justify-between items-center relative overflow-hidden;
+}
+
+.reserva-servicio-tarjeta.seleccionado {
+  @apply border-blue-500 bg-[#0f1126]/60 shadow-[0_0_30px_rgba(59,130,246,0.1)];
+}
+
+.reserva-servicio-info {
+  @apply flex items-start gap-4 pr-4;
+}
+
+.reserva-servicio-icono {
+  @apply p-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 transition-colors shrink-0;
+}
+
+.reserva-servicio-tarjeta.seleccionado .reserva-servicio-icono {
+  @apply text-blue-400 border-blue-500/20 bg-blue-500/5;
+}
+
+.reserva-servicio-nombre {
+  @apply text-base font-bold text-white mb-1;
+}
+
+.reserva-servicio-desc {
+  @apply text-zinc-500 text-xs leading-relaxed;
+}
+
+.reserva-servicio-precio-tiempo {
+  @apply flex flex-col items-end shrink-0 text-right;
+}
+
+.reserva-servicio-precio {
+  @apply text-lg font-black text-blue-400;
+}
+
+.reserva-servicio-tiempo {
+  @apply text-[10px] text-zinc-500 font-semibold uppercase tracking-wider mt-1;
+}
+
+.reserva-dias-grid {
+  @apply grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 mb-6;
+}
+
+.reserva-dia-tarjeta {
+  @apply p-4 rounded-xl bg-zinc-950/60 border border-zinc-900/80 cursor-pointer text-center hover:border-blue-500/40 transition-all duration-300 flex flex-col items-center justify-center;
+}
+
+.reserva-dia-tarjeta.seleccionado {
+  @apply border-blue-500 bg-[#0f1126]/60 shadow-[0_0_20px_rgba(59,130,246,0.1)];
+}
+
+.reserva-dia-semana {
+  @apply text-[10px] uppercase font-bold tracking-widest text-zinc-500 mb-1;
+}
+
+.reserva-dia-numero {
+  @apply text-lg font-black text-white;
+}
+
+.reserva-dia-mes {
+  @apply text-[10px] text-zinc-400 font-semibold mt-0.5;
+}
+
+.reserva-horas-titulo {
+  @apply text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3 border-b border-zinc-900/80 pb-2;
+}
+
+.reserva-horas-grid {
+  @apply grid grid-cols-3 sm:grid-cols-6 gap-3 mb-6;
+}
+
+.reserva-hora-tarjeta {
+  @apply py-3 rounded-lg bg-zinc-950/60 border border-zinc-900/80 cursor-pointer text-center text-xs font-bold text-zinc-300 hover:border-blue-500/40 transition-all duration-300;
+}
+
+.reserva-hora-tarjeta.seleccionado {
+  @apply border-blue-500 bg-[#0f1126]/60 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.1)];
+}
+
+.reserva-acciones {
+  @apply flex justify-between items-center border-t border-zinc-900/80 pt-6 mt-8;
+}
+
+.reserva-boton-atras {
+  @apply px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-zinc-400 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all cursor-pointer;
+}
+
+.reserva-boton-siguiente {
+  @apply px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 active:scale-95 transition-all cursor-pointer disabled:opacity-40 disabled:pointer-events-none;
+}

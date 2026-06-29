@@ -10,11 +10,27 @@ export default function ContactoClient() {
     const [email, setEmail] = useState("");
     const [mensaje, setMensaje] = useState("");
     const [enviado, setEnviado] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [honeypot, setHoneypot] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Aquí conectarías con tu API, servicio de email (ej. EmailJS, Resend) o Base de datos.
-        setEnviado(true);
+        
+        // Honeypot spam prevention
+        if (honeypot) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        // Simulate network API submission latency
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setEnviado(true);
+            setNombre("");
+            setEmail("");
+            setMensaje("");
+        }, 1500);
     };
 
     return (
@@ -171,12 +187,34 @@ export default function ContactoClient() {
                                         />
                                     </div>
 
+                                    {/* Honeypot Spam Protection (Invisible for human users) */}
+                                    <div className="hidden" aria-hidden="true">
+                                        <input
+                                            type="text"
+                                            name="website_url"
+                                            value={honeypot}
+                                            onChange={(e) => setHoneypot(e.target.value)}
+                                            tabIndex={-1}
+                                            autoComplete="off"
+                                        />
+                                    </div>
+
                                     <button
                                         type="submit"
-                                        className="contacto-boton-enviar"
+                                        disabled={isSubmitting}
+                                        className="contacto-boton-enviar disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        <span>Enviar Mensaje</span>
-                                        <Send size={12} />
+                                        {isSubmitting ? (
+                                            <>
+                                                <span>Enviando...</span>
+                                                <div className="h-3 w-3 animate-spin rounded-full border border-white border-t-transparent" />
+                                            </>
+                                        ) : (
+                                            <>
+                                                <span>Enviar Mensaje</span>
+                                                <Send size={12} />
+                                            </>
+                                        )}
                                     </button>
                                 </form>
                             )}
