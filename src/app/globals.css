@@ -846,3 +846,90 @@
     @apply font-sans;
   }
 }
+
+/* --- CLASES PERSONALIZADAS DE TESTIMONIOS (EN ESPAÑOL) --- */
+
+.contenedor-principal-testimonios {
+  @apply min-h-screen bg-zinc-950 text-white pt-32 pb-24 relative overflow-hidden;
+}
+
+.glow-testimonios-1 {
+  @apply absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none;
+}
+
+.glow-testimonios-2 {
+  @apply absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none;
+}
+
+.cabecera-testimonios {
+  @apply text-center mb-16 max-w-3xl mx-auto;
+}
+
+.badge-testimonios {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4;
+}
+
+.titulo-testimonios {
+  @apply text-4xl md:text-6xl font-black font-display uppercase tracking-tight mb-6 bg-clip-text text-transparent bg-linear-to-r from-white via-zinc-100 to-blue-400;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.15));
+}
+
+.descripcion-testimonios {
+  @apply text-zinc-400 text-sm md:text-base leading-relaxed;
+}
+
+.rejilla-testimonios {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.tarjeta-testimonio {
+  @apply relative flex flex-col justify-between p-8 rounded-2xl bg-zinc-900/40 border border-zinc-900/80 backdrop-blur-md hover:border-blue-500/50 hover:bg-[#0f1126]/60 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500;
+}
+
+.tarjeta-comilla {
+  @apply absolute top-6 right-6 text-blue-500/10;
+}
+
+.estrellas-contenedor {
+  @apply flex gap-1 mb-4;
+}
+
+.texto-reseña {
+  @apply text-zinc-300 text-sm md:text-base leading-relaxed italic mb-6;
+}
+
+.cliente-info-footer {
+  @apply flex items-center gap-3.5 border-t border-zinc-900/80 pt-4 mt-2;
+}
+
+.avatar-iniciales {
+  @apply w-10 h-10 rounded-full bg-linear-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shadow-md shadow-blue-600/20;
+}
+
+.cliente-nombre {
+  @apply text-white text-sm font-bold tracking-tight;
+}
+
+.cliente-rol {
+  @apply text-zinc-500 text-[10px] uppercase tracking-wider font-semibold;
+}
+
+.contenedor-boton-reserva-testimonios {
+  @apply max-w-4xl mx-auto mt-28 p-10 md:p-16 rounded-3xl border border-zinc-800/80 backdrop-blur-xl relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl bg-zinc-950/40;
+  background-image: 
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.12), transparent 45%);
+}
+
+.reserva-testimonios-contenido {
+  @apply relative z-20 flex flex-col items-center gap-4 max-w-xl;
+}
+
+.reserva-testimonios-titulo {
+  @apply text-3xl md:text-5xl font-black font-display uppercase tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white via-zinc-100 to-blue-400;
+  filter: drop-shadow(0 2px 10px rgba(59, 130, 246, 0.2));
+}
+
+.reserva-testimonios-desc {
+  @apply text-zinc-400 text-sm md:text-base leading-relaxed mb-4;
+}
