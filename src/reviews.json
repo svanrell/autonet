@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "Guarinoex Brens",
+        "reseña": "Muy bueno en su trabajo y el coche ha quedado impecable lo recomiendo",
+        "estrellas": 5,
+    }
+    {
+        "nombre": "Camino Llompart",
+        "reseña": "¡Es el mejor! Llevo años llevándole mis coches y siempre los deja impecables. Una vez incluso me hizo el favor de guardarme el coche hasta el día siguiente por una urgencia. Precios muy competitivos, muy buenos.",
+        "estrellas": 5,
+    }
+    {
+        "nombre": "Marcos Paz",
+        "reseña": "Buen servicio y buen precio",
+        "estrellas": 5,
+    }
+    {
+        "nombre": "Cecilia Gigena",
+        "reseña": "Gabriel es muy profesional",
+        "estrellas": 5,
+    }
+    {
+        "nombre": "Marga Faba",
+        "reseña": "Llevo años llevándole mis coches y siempre quedan impecables. Una vez incluso me hizo el favor de guardarme el coche hasta el día siguiente por una urgencia. Precios muy competitivos.",
+        "estrellas": 5,
+    }
+    {
+        "nombre": "Marga Faba",
+        "reseña": "Llevo años llevándole mis coches y siempre quedan impecables. Una vez incluso me hizo el favor de guardarme el coche hasta el día siguiente por una urgencia. Precios muy competitivos.",
+        "estrellas": 5,
+    }
+]
