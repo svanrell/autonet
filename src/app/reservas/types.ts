@@ -1,5 +1,3 @@
-import { type Service } from "@/data/services";
-
 export interface ClientInfo {
   name: string;
   email: string;

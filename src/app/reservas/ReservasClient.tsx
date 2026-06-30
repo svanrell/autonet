@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NavBar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Calendar } from "lucide-react";
@@ -30,11 +30,7 @@ export default function ReservasClient() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [availableDays, setAvailableDays] = useState<DateObject[]>([]);
-
-  useEffect(() => {
-    setAvailableDays(getNextDays());
-  }, []);
+  const [availableDays] = useState<DateObject[]>(() => getNextDays());
 
   const handleNextStep = () => {
     if (step < 4) setStep(step + 1);
