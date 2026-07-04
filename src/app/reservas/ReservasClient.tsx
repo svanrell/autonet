@@ -11,10 +11,10 @@ import { ClientInfo, DateObject } from "./types";
 import { getNextDays } from "./utils";
 import PasosProgreso from "./components/PasosProgreso";
 import PantallaExito from "./components/PantallaExito";
-import PasoServicio from "./components/PasoServicio";
-import PasoFechaHora from "./components/PasoFechaHora";
-import PasoDatos from "./components/PasoDatos";
-import PasoResumen from "./components/PasoResumen";
+import PasoServicio from "./components/steps/PasoServicio";
+import PasoFechaHora from "./components/steps/PasoFechaHora";
+import PasoDatos from "./components/steps/PasoDatos";
+import PasoResumen from "./components/steps/PasoResumen";
 import BotonesAccion from "./components/BotonesAccion";
 
 export default function ReservasClient() {
@@ -79,7 +79,7 @@ export default function ReservasClient() {
         <div className="glow-reservas-2" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          
+
           {/* Page Header */}
           {!isSubmitted && (
             <div className="cabecera-reservas">
@@ -93,10 +93,10 @@ export default function ReservasClient() {
               </p>
             </div>
           )}
-
+        
           {/* Stepper container */}
           <div className="reserva-contenedor-pasos">
-            
+
             {/* Steps Progress Header */}
             {!isSubmitted && <PasosProgreso step={step} />}
 
@@ -111,7 +111,7 @@ export default function ReservasClient() {
               ) : (
                 /* Stepper Forms */
                 <form onSubmit={handleSubmit}>
-                  
+
                   {step === 1 && (
                     <PasoServicio
                       selectedService={selectedService}

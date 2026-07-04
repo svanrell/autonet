@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { DateObject } from "../types";
-import { timeSlots } from "../utils";
+import { DateObject } from "../../types";
+import { timeSlots } from "../../utils";
 
 interface PasoFechaHoraProps {
   availableDays: DateObject[];

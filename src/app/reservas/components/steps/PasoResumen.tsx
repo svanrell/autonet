@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import type { Service } from "@/data/services";
-import { ClientInfo, DateObject } from "../types";
+import { ClientInfo, DateObject } from "../../types";
 
 interface PasoResumenProps {
   selectedService: Service | null;

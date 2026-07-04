@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { User, Phone, Mail, FileText } from "lucide-react";
-import { ClientInfo } from "../types";
+import { ClientInfo } from "../../types";
 
 interface PasoDatosProps {
   clientInfo: ClientInfo;
