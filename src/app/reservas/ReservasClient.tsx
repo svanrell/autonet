@@ -30,6 +30,7 @@ export default function ReservasClient() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [availableDays] = useState<DateObject[]>(() => getNextDays());
 
   const handleNextStep = () => {
@@ -57,17 +58,40 @@ export default function ReservasClient() {
     setClientInfo(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isStepValid()) return;
 
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate submission to the user's future API
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/reservas", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          service: selectedService,
+          dateString: selectedDate?.dateString,
+          time: selectedTime,
+          clientInfo
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Ocurrió un error al procesar tu reserva.");
+      }
+
       setIsSubmitted(true);
-    }, 2000);
+    } catch (err: any) {
+      console.error("Error al enviar reserva:", err);
+      setError(err.message || "Error de conexión. Inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -143,6 +167,12 @@ export default function ReservasClient() {
                       selectedTime={selectedTime}
                       clientInfo={clientInfo}
                     />
+                  )}
+
+                  {error && (
+                    <div className="mb-4 p-3 rounded-lg border border-red-500/20 bg-red-500/10 text-red-400 text-xs font-semibold text-center">
+                      {error}
+                    </div>
                   )}
 
                   {/* Actions buttons footer */}

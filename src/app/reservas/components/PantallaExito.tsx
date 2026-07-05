@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Calendar } from "lucide-react";
 import Link from "next/link";
 import { type Service } from "@/data/services";
 import { DateObject } from "../types";
@@ -16,6 +16,35 @@ export default function PantallaExito({
   selectedDate,
   selectedTime
 }: PantallaExitoProps) {
+  const buildGoogleCalendarUrl = () => {
+    if (!selectedDate || !selectedService) return "#";
+    
+    // Construct local Date object based on Spanish local time context
+    const [year, month, day] = selectedDate.dateString.split("-").map(Number);
+    const [hours, minutes] = selectedTime.split(":").map(Number);
+    const localDate = new Date(year, month - 1, day, hours, minutes);
+    
+    const durationMin = parseInt(selectedService.duration.replace(/\D/g, "") || "60", 10);
+    const endDate = new Date(localDate.getTime() + durationMin * 60 * 1000);
+    
+    const formatGoogleUTC = (d: Date) => {
+      return d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    };
+    
+    const dates = `${formatGoogleUTC(localDate)}/${formatGoogleUTC(endDate)}`;
+    
+    const text = encodeURIComponent(`🚗 Cita Autonet: ${selectedService.name}`);
+    const details = encodeURIComponent(
+      `Tu reserva para limpieza de coche en Autonet está registrada.\n\n` +
+      `Servicio: ${selectedService.name}\n` +
+      `Precio: ${selectedService.price}€\n` +
+      `Duración: ${selectedService.duration}\n\n` +
+      `Estado: Pendiente de confirmación.`
+    );
+    
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}`;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -56,12 +85,23 @@ export default function PantallaExito({
         </div>
       </div>
 
-      <Link
-        href="/"
-        className="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all cursor-pointer"
-      >
-        Volver a Inicio
-      </Link>
+      <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs sm:max-w-md justify-center">
+        <a
+          href={buildGoogleCalendarUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-850 hover:bg-zinc-800 text-white border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
+        >
+          <Calendar size={14} className="text-blue-400" />
+          Añadir a mi Calendario
+        </a>
+        <Link
+          href="/"
+          className="flex items-center justify-center px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 transition-all cursor-pointer"
+        >
+          Volver a Inicio
+        </Link>
+      </div>
     </motion.div>
   );
 }
