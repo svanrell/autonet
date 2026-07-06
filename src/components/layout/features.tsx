@@ -37,20 +37,20 @@ const features = [
 
 export default function Features() {
     return (
-        <section className="py-24 bg-zinc-950/40 relative overflow-hidden">
+        <section className="py-24 bg-zinc-50/40 dark:bg-zinc-950/40 relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-120 h-120 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-500/10">
+                    <span className="text-xs font-bold uppercase tracking-widest text-blue-650 dark:text-blue-500 bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-500/10">
                         ¿Por qué elegirnos?
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-black mt-6 mb-4 uppercase tracking-tight text-white font-display">
+                    <h2 className="text-4xl md:text-5xl font-black mt-6 mb-4 uppercase tracking-tight text-zinc-900 dark:text-white font-display">
                         Elevamos el estándar del cuidado automotriz
                     </h2>
-                    <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                    <p className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed">
                         Combinamos innovación, sostenibilidad y pasión por el detalle para ofrecerte un servicio inigualable.
                     </p>
                 </div>
@@ -61,20 +61,20 @@ export default function Features() {
                         return (
                             <div
                                 key={idx}
-                                className={`relative group p-8 rounded-2xl bg-zinc-900/20 border border-zinc-900/80 hover:bg-zinc-900/40 transition-all duration-500 ${item.borderColor} overflow-hidden`}
+                                className={`relative group p-8 rounded-2xl bg-white dark:bg-zinc-900/20 border border-zinc-200 dark:border-zinc-900/80 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-500 ${item.borderColor} overflow-hidden shadow-sm dark:shadow-none`}
                             >
                                 {/* Glow Effect on Hover */}
                                 <div className={`absolute inset-0 bg-linear-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
                                 
                                 <div className="relative z-10 flex flex-col sm:flex-row items-start gap-5">
-                                    <div className={`p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 ${item.iconColor} group-hover:scale-110 transition-transform duration-300 shadow-inner shrink-0`}>
+                                    <div className={`p-4 rounded-xl bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 ${item.iconColor} group-hover:scale-110 transition-transform duration-300 shadow-inner shrink-0`}>
                                         <Icon className="w-6 h-6" />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                             {item.title}
                                         </h3>
-                                        <p className="text-zinc-400 text-sm leading-relaxed">
+                                        <p className="text-zinc-650 dark:text-zinc-400 text-sm leading-relaxed">
                                             {item.description}
                                         </p>
                                     </div>

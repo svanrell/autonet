@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NuestraHistoria() {
     return (
-        <section className="py-24 bg-zinc-950/20 relative overflow-hidden border-t border-zinc-900/60">
+        <section className="py-24 bg-zinc-50/20 dark:bg-zinc-950/20 relative overflow-hidden border-t border-zinc-200 dark:border-zinc-900/60">
             {/* Soft decorative background glow */}
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -12,16 +12,16 @@ export default function NuestraHistoria() {
 
                     {/* Left Column - Large Typography Focus */}
                     <div className="lg:col-span-5 space-y-6">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white font-display leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-zinc-900 dark:text-white font-display leading-tight">
                             El Arte del <br className="hidden lg:block" />
-                            <span className="bg-linear-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
+                            <span className="bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400 bg-clip-text text-transparent">
                                 Detallado
                             </span>
                         </h2>
                     </div>
 
                     {/* Right Column - Deep Narrative & Paragraphs */}
-                    <div className="lg:col-span-7 space-y-8 text-zinc-400 text-sm md:text-base leading-relaxed font-normal">
+                    <div className="lg:col-span-7 space-y-8 text-zinc-650 dark:text-zinc-400 text-sm md:text-base leading-relaxed font-normal">
                         <div className="space-y-6">
                             <p>
                                 Autonet nació de una insatisfacción con el lavado convencional de coches. Creíamos que los vehículos merecían algo mejor que los rodillos mecánicos agresivos que rayan la pintura y los químicos industriales abrasivos que deterioran los acabados con el tiempo.

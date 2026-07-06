@@ -9,6 +9,7 @@ import {
     Menu,      // Para abrir menú móvil
     X          // Para cerrar menú móvil
 } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const links = [
     { href: "/", label: "Inicio" },
@@ -68,14 +69,16 @@ export default function NavBar() {
                     </nav>
 
                     {/* 3. BOTÓN RESERVA */}
-                    <div className="contenedor-boton">
+                    <div className="contenedor-boton gap-4">
+                        <ThemeToggle />
                         <Link href="/reservas" className="boton-reserva">
                             Reserva
                         </Link>
                     </div>
 
                     {/* BOTÓN MENÚ MÓVIL */}
-                    <div className="boton-menu-movil">
+                    <div className="boton-menu-movil items-center gap-4">
+                        <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="icono-menu-movil"
