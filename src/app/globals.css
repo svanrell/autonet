@@ -857,7 +857,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-500;
   }
 
   html {
@@ -1119,4 +1119,17 @@
 
 .reserva-boton-siguiente {
   @apply px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-600/20 active:scale-95 transition-all cursor-pointer disabled:opacity-40 disabled:pointer-events-none;
+}
+
+/* --- ANIMACIÓN DE TRANSICIÓN DE TEMA (VIEW TRANSITIONS) --- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
 }
