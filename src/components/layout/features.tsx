@@ -12,7 +12,7 @@ const features = [
     {
         icon: ShieldCheck,
         title: "Garantía de Calidad",
-        description: "Cada vehículo es tratado por profesionales certificados con herramientas de última generación, garantizando un Acabado impecable y seguro.",
+        description: "Cada vehículo es tratado por profesionales certificados con herramientas de última generación, garantizando un acabado impecable y seguro.",
         gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
         iconColor: "text-blue-400",
         borderColor: "hover:border-blue-500/30"
@@ -65,7 +65,7 @@ export default function Features() {
                             >
                                 {/* Glow Effect on Hover */}
                                 <div className={`absolute inset-0 bg-linear-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-                                
+
                                 <div className="relative z-10 flex flex-col sm:flex-row items-start gap-5">
                                     <div className={`p-4 rounded-xl bg-zinc-100 dark:bg-zinc-950/80 border border-zinc-200 dark:border-zinc-800 ${item.iconColor} group-hover:scale-110 transition-transform duration-300 shadow-inner shrink-0`}>
                                         <Icon className="w-6 h-6" />
