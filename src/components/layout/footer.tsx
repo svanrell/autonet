@@ -73,14 +73,11 @@ export default function Footer() {
                         <ul className="horarios-footer">
                             <li className="horario-item">
                                 <span className="dia-semana">Lunes a Viernes</span>
-                                <span className="horas">09:00 - 18:00</span>
+                                <span className="horas">08:00 - 13:00</span>
+                                <span className="horas">14:00-18:00</span>
                             </li>
                             <li className="horario-item">
-                                <span className="dia-semana">Sábados</span>
-                                <span className="horas">09:00 - 14:00</span>
-                            </li>
-                            <li className="horario-item">
-                                <span className="dia-semana">Domingos</span>
+                                <span className="dia-semana">Sábados y Domingos</span>
                                 <span className="horas cerrado">Cerrado</span>
                             </li>
                         </ul>
@@ -96,11 +93,11 @@ export default function Footer() {
                         <ul className="contacto-footer">
                             <li className="contacto-item">
                                 <Phone size={16} className="icono-contacto" />
-                                <a href="tel:+34123456789" className="contacto-texto">+34 123 456 789</a>
+                                <a href="tel:+34971450085" className="contacto-texto">+34 971 45 00 85</a>
                             </li>
                             <li className="contacto-item">
                                 <Mail size={16} className="icono-contacto" />
-                                <a href="mailto:info@autonet.es" className="contacto-texto">info@autonet.es</a>
+                                <a href="mailto:reservas.autonet@gmail.com" className="contacto-texto">reservas.autonet@gmail.com</a>
                             </li>
                         </ul>
                         <Iframe
