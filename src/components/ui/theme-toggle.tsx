@@ -61,14 +61,28 @@ export function ThemeToggle() {
                 `circle(${endRadius}px at ${x}px ${y}px)`,
             ];
             
+            // Animate the new theme view (expand circle + fade in opacity)
             document.documentElement.animate(
                 {
                     clipPath: clipPath,
+                    opacity: [0, 1],
                 },
                 {
                     duration: 500,
                     easing: "ease-in-out",
                     pseudoElement: "::view-transition-new(root)",
+                }
+            );
+
+            // Animate the old theme view (fade out opacity)
+            document.documentElement.animate(
+                {
+                    opacity: [1, 0],
+                },
+                {
+                    duration: 500,
+                    easing: "ease-in-out",
+                    pseudoElement: "::view-transition-old(root)",
                 }
             );
         });
