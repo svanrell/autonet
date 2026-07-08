@@ -45,3 +45,6 @@ next-env.d.ts
 
 # google service account credentials
 autonet-reservas-*.json
+
+# local task files
+siguientesPasos.md

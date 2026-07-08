@@ -70,10 +70,10 @@ export default function NavBar() {
 
                     {/* 3. BOTÓN RESERVA */}
                     <div className="contenedor-boton gap-4">
-                        <ThemeToggle />
                         <Link href="/reservas" className="boton-reserva">
                             Reserva
                         </Link>
+                        <ThemeToggle />
                     </div>
 
                     {/* BOTÓN MENÚ MÓVIL */}
