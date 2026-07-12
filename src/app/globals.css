@@ -397,7 +397,11 @@
 }
 
 .icono-red {
-  @apply w-9 h-9 rounded-full bg-zinc-200 dark:bg-zinc-900 hover:bg-blue-600 hover:text-white flex items-center justify-center text-zinc-500 dark:text-zinc-400 transition-all duration-300;
+  @apply w-9 h-9 rounded-full bg-zinc-200 dark:bg-zinc-900 flex items-center justify-center text-zinc-500 dark:text-zinc-400 transition-all duration-300;
+}
+
+.icono-red:hover {
+  @apply bg-blue-600 text-white;
 }
 
 .titulo-columna {
@@ -631,7 +635,7 @@
 }
 
 .contacto-entrada {
-  @apply w-full bg-white dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-zinc-900 dark:text-white transition-all;
+  @apply w-full bg-white dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-zinc-900 dark:text-white placeholder:text-black/60 dark:placeholder:text-white/60 transition-all;
 }
 
 .contacto-boton-enviar {

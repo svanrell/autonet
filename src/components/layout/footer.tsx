@@ -104,7 +104,7 @@ export default function Footer() {
                                 <Image 
                                     src="/contacto/email.svg" 
                                     alt="Email de contacto" 
-                                    width={160} 
+                                    width={187} 
                                     height={16} 
                                     style={{ height: "auto" }}
                                     className="object-contain dark:invert" 

@@ -25,7 +25,7 @@ export default function ContactoClient() {
         setIsSubmitting(true);
 
         // Sending the information to the owner
-
+        // WORK IN PROGRESS
         // Code for send info
         console.log("Datos recibidos:");
         console.log(`Nombre: ${nombre}`);
@@ -78,7 +78,7 @@ export default function ContactoClient() {
                                         <Image
                                             src="/contacto/email.svg"
                                             alt="Email de contacto"
-                                            width={240}
+                                            width={280}
                                             height={24}
                                             style={{ height: "auto" }}
                                             className="object-contain dark:invert"
