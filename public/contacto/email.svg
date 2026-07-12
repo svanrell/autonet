@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 24" width="240" height="24">
+  <style>
+    text {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      fill: #18181b; /* zinc-900 */
+    }
+  </style>
+  <text x="0" y="18">reservas.autonet@gmail.com</text>
+</svg>

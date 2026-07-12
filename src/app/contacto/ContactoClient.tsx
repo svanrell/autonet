@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactoClient() {
     const [nombre, setNombre] = useState("");
@@ -58,8 +59,7 @@ export default function ContactoClient() {
                         {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
                         <div className="contacto-columna-tarjetas">
                             {/* Tarjeta 1: Escríbenos */}
-                            <a 
-                                href="mailto:info@autonet.es" 
+                            <div 
                                 className="group contacto-tarjeta-enlace"
                             >
                                 <div className="contacto-tarjeta-icono">
@@ -69,20 +69,25 @@ export default function ContactoClient() {
                                     <p className="contacto-tarjeta-categoria">
                                         Escríbenos
                                     </p>
-                                    <h3 className="contacto-tarjeta-valor">
-                                        info@autonet.es
-                                    </h3>
+                                    <div className="mt-1 h-7 flex items-center">
+                                        <Image 
+                                            src="/contacto/email.svg" 
+                                            alt="Email de contacto" 
+                                            width={240} 
+                                            height={24} 
+                                            className="object-contain dark:invert" 
+                                        />
+                                    </div>
                                     <p className="contacto-tarjeta-detalles">
-                                        Respuesta en 2-4 horas
+                                        Respuesta en 24 - 48 horas hábiles
                                     </p>
                                 </div>
-                            </a>
+                            </div>
 
                             {/* Tarjeta 2: Llámanos */}
-                            <a 
-                                href="tel:+34123456789" 
+                            <div 
                                 className="group contacto-tarjeta-enlace"
-                            >
+                            >   
                                 <div className="contacto-tarjeta-icono">
                                     <Phone size={24} />
                                 </div>
@@ -90,14 +95,20 @@ export default function ContactoClient() {
                                     <p className="contacto-tarjeta-categoria">
                                         Llámanos
                                     </p>
-                                    <h3 className="contacto-tarjeta-valor">
-                                        +34 123 456 789
-                                    </h3>
+                                    <div className="mt-1 h-7 flex items-center">
+                                        <Image 
+                                            src="/contacto/telefono.svg" 
+                                            alt="Teléfono de contacto" 
+                                            width={180} 
+                                            height={24} 
+                                            className="object-contain dark:invert" 
+                                        />
+                                    </div>
                                     <p className="contacto-tarjeta-detalles">
                                         Disponible L-V 9:00 - 19:00
                                     </p>
                                 </div>
-                            </a>
+                            </div>
 
                             {/* Tarjeta 3: Visítanos */}
                             <div 
