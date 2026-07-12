@@ -16,7 +16,7 @@ export default function ContactoClient() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         // Honeypot spam prevention
         if (honeypot) {
             return;
@@ -25,13 +25,9 @@ export default function ContactoClient() {
         setIsSubmitting(true);
 
         // Simulate network API submission latency
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setEnviado(true);
-            setNombre("");
-            setEmail("");
-            setMensaje("");
-        }, 1500);
+        setIsSubmitting(false);
+        setEnviado(true);
+        
     };
 
     return (
@@ -59,7 +55,7 @@ export default function ContactoClient() {
                         {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
                         <div className="contacto-columna-tarjetas">
                             {/* Tarjeta 1: Escríbenos */}
-                            <div 
+                            <div
                                 className="group contacto-tarjeta-enlace"
                             >
                                 <div className="contacto-tarjeta-icono">
@@ -70,12 +66,13 @@ export default function ContactoClient() {
                                         Escríbenos
                                     </p>
                                     <div className="mt-1 h-7 flex items-center">
-                                        <Image 
-                                            src="/contacto/email.svg" 
-                                            alt="Email de contacto" 
-                                            width={240} 
-                                            height={24} 
-                                            className="object-contain dark:invert" 
+                                        <Image
+                                            src="/contacto/email.svg"
+                                            alt="Email de contacto"
+                                            width={240}
+                                            height={24}
+                                            style={{ height: "auto" }}
+                                            className="object-contain dark:invert"
                                         />
                                     </div>
                                     <p className="contacto-tarjeta-detalles">
@@ -85,9 +82,9 @@ export default function ContactoClient() {
                             </div>
 
                             {/* Tarjeta 2: Llámanos */}
-                            <div 
+                            <div
                                 className="group contacto-tarjeta-enlace"
-                            >   
+                            >
                                 <div className="contacto-tarjeta-icono">
                                     <Phone size={24} />
                                 </div>
@@ -96,12 +93,13 @@ export default function ContactoClient() {
                                         Llámanos
                                     </p>
                                     <div className="mt-1 h-7 flex items-center">
-                                        <Image 
-                                            src="/contacto/telefono.svg" 
-                                            alt="Teléfono de contacto" 
-                                            width={180} 
-                                            height={24} 
-                                            className="object-contain dark:invert" 
+                                        <Image
+                                            src="/contacto/telefono.svg"
+                                            alt="Teléfono de contacto"
+                                            width={180}
+                                            height={24}
+                                            style={{ height: "auto" }}
+                                            className="object-contain dark:invert"
                                         />
                                     </div>
                                     <p className="contacto-tarjeta-detalles">
@@ -111,7 +109,7 @@ export default function ContactoClient() {
                             </div>
 
                             {/* Tarjeta 3: Visítanos */}
-                            <div 
+                            <div
                                 className="group contacto-tarjeta-enlace"
                             >
                                 <div className="contacto-tarjeta-icono">

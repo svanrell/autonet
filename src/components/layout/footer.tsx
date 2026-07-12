@@ -56,9 +56,6 @@ export default function Footer() {
                                 <Link href="/servicios" className="enlace-footer">Servicios</Link>
                             </li>
                             <li>
-                                <Link href="/galeria" className="enlace-footer">Galería</Link>
-                            </li>
-                            <li>
                                 <Link href="/testimonios" className="enlace-footer">Testimonios</Link>
                             </li>
                             <li>
@@ -96,8 +93,9 @@ export default function Footer() {
                                 <Image 
                                     src="/contacto/telefono.svg" 
                                     alt="Telefono de contacto" 
-                                    width={160} 
+                                    width={120} 
                                     height={16} 
+                                    style={{ height: "auto" }}
                                     className="object-contain dark:invert" 
                                 />
                             </li>
@@ -106,8 +104,9 @@ export default function Footer() {
                                 <Image 
                                     src="/contacto/email.svg" 
                                     alt="Email de contacto" 
-                                    width={195} 
+                                    width={160} 
                                     height={16} 
+                                    style={{ height: "auto" }}
                                     className="object-contain dark:invert" 
                                 />
                             </li>

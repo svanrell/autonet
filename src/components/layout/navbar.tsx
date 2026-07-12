@@ -14,7 +14,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 const links = [
     { href: "/", label: "Inicio" },
     { href: "/servicios", label: "Servicios" },
-    { href: "/galeria", label: "Galería" },
     { href: "/testimonios", label: "Testimonios" },
     { href: "/contacto", label: "Contacto" },
 ];

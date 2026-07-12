@@ -27,7 +27,6 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
 
     const x = useTransform(baseX, (v) => `${wrap(0, -50, v)}%`)
 
-    const directionFactor = React.useRef<number>(1)
     const scrollThreshold = React.useRef<number>(5)
 
     useAnimationFrame((t, delta) => {
@@ -43,13 +42,8 @@ const ScrollVelocity = React.forwardRef<HTMLDivElement, ScrollVelocityProps>(
     function move(delta: number) {
       // Limit delta to prevent massive jumps on frame drops
       const safeDelta = Math.min(delta, 32)
-      let moveBy = directionFactor.current * velocity * (safeDelta / 1000)
-      if (velocityFactor.get() < 0) {
-        directionFactor.current = -1
-      } else if (velocityFactor.get() > 0) {
-        directionFactor.current = 1
-      }
-      moveBy += directionFactor.current * moveBy * velocityFactor.get()
+      let moveBy = velocity * (safeDelta / 1000)
+      moveBy += moveBy * Math.abs(velocityFactor.get())
       baseX.set(baseX.get() + moveBy)
     }
 
