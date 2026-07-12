@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, SubmitEvent } from "react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
@@ -14,7 +14,7 @@ export default function ContactoClient() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [honeypot, setHoneypot] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // Honeypot spam prevention
@@ -24,10 +24,19 @@ export default function ContactoClient() {
 
         setIsSubmitting(true);
 
-        // Simulate network API submission latency
+        // Sending the information to the owner
+
+        // Code for send info
+        console.log("Datos recibidos:");
+        console.log(`Nombre: ${nombre}`);
+        console.log(`Email: ${email}`);
+        console.log(`Mensaje: ${mensaje}`);
+
         setIsSubmitting(false);
+        setNombre("");
+        setEmail("");
+        setMensaje("");
         setEnviado(true);
-        
     };
 
     return (
