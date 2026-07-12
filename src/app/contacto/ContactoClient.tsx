@@ -121,7 +121,7 @@ export default function ContactoClient() {
                                     <p className="contacto-tarjeta-categoria">
                                         Visítanos
                                     </p>
-                                    <h3 className="contacto-tarjeta-valor">
+                                    <h3>
                                         Calle de la Limpieza 123, BCN
                                     </h3>
                                     <p className="contacto-tarjeta-detalles">

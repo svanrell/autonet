@@ -478,7 +478,9 @@
 
 .separador-legal {
   @apply text-zinc-300 dark:text-zinc-800;
-}/* --- CLASES PERSONALIZADAS DE LA PORTADA (EN ESPAÑOL) --- */
+}
+
+/* --- CLASES PERSONALIZADAS DE LA PORTADA (EN ESPAÑOL) --- */
 
 .portada-seccion {
   @apply w-full relative overflow-hidden bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white py-24 md:py-32;
@@ -579,7 +581,7 @@
 }
 
 .contacto-tarjeta-enlace {
-  @apply relative flex items-center gap-6 p-6 rounded-2xl bg-zinc-50 dark:bg-[#090a16]/40 border border-zinc-200 dark:border-zinc-900 hover:border-blue-500/50 hover:bg-zinc-100/80 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer;
+  @apply relative flex items-center gap-6 p-6 rounded-2xl bg-zinc-50 dark:bg-[#090a16]/40 border border-zinc-200 dark:border-zinc-900 hover:border-blue-500/50 hover:bg-zinc-100/80 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_30px_rgba(59, 130, 246, 0.15)] transition-all duration-500 cursor-pointer;
 }
 
 .contacto-tarjeta-icono {
@@ -588,10 +590,6 @@
 
 .contacto-tarjeta-categoria {
   @apply text-xs uppercase tracking-wider font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors;
-}
-
-.contacto-tarjeta-valor {
-  @apply text-lg font-bold text-zinc-900 dark:text-white mt-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate;
 }
 
 .contacto-tarjeta-detalles {
@@ -678,7 +676,7 @@
 }
 
 .contenedor-servicio {
-  @apply relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md hover:border-blue-500/50 hover:bg-zinc-100/60 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500;
+  @apply relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md hover:border-blue-500/50 hover:bg-zinc-100/60 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_40px_rgba(59, 130, 246, 0.15)] transition-all duration-500;
 }
 
 .contenedor-servicio h2 {
@@ -711,7 +709,7 @@
 
 .contenedor-boton-reserva-servicios {
   @apply max-w-5xl mx-auto mt-28 mb-12 p-10 md:p-16 rounded-3xl border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-xl relative z-10 overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl;
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.06), transparent 45%),
     radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.06), transparent 45%);
   background-color: rgba(250, 250, 250, 0.95);
@@ -719,7 +717,7 @@
 }
 
 .dark .contenedor-boton-reserva-servicios {
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 45%),
     radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.12), transparent 45%);
   background-color: rgba(9, 9, 11, 0.25);
@@ -755,15 +753,19 @@
 }
 
 @keyframes pulse-glow-blob {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1) translate(0px, 0px);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.15) translate(10px, -10px);
     opacity: 1;
   }
 }
+
 /* --- CLASES DE SERVICIOS SECUNDARIOS EN INICIO --- */
 
 .servicios-inicio {
@@ -901,7 +903,7 @@
 }
 
 .tarjeta-testimonio {
-  @apply relative flex flex-col justify-between p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md hover:border-blue-500/50 hover:bg-zinc-100/60 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500;
+  @apply relative flex flex-col justify-between p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md hover:border-blue-500/50 hover:bg-zinc-100/60 dark:hover:bg-[#0f1126]/60 hover:shadow-[0_0_40px_rgba(59, 130, 246, 0.15)] transition-all duration-500;
 }
 
 .tarjeta-comilla {
@@ -934,13 +936,13 @@
 
 .contenedor-boton-reserva-testimonios {
   @apply max-w-4xl mx-auto mt-28 p-10 md:p-16 rounded-3xl border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-xl relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl bg-zinc-50/40 dark:bg-zinc-950/40;
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.06), transparent 45%),
     radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.06), transparent 45%);
 }
 
 .dark .contenedor-boton-reserva-testimonios {
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 45%),
     radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.12), transparent 45%);
 }
@@ -1034,7 +1036,7 @@
 }
 
 .reserva-servicio-tarjeta.seleccionado {
-  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 shadow-[0_0_30px_rgba(59,130,246,0.06)] dark:shadow-[0_0_30px_rgba(59,130,246,0.1)];
+  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 shadow-[0_0_30px_rgba(59, 130, 246, 0.06)] dark:shadow-[0_0_30px_rgba(59, 130, 246, 0.1)];
 }
 
 .reserva-servicio-info {
@@ -1078,7 +1080,7 @@
 }
 
 .reserva-dia-tarjeta.seleccionado {
-  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 shadow-[0_0_20px_rgba(59,130,246,0.06)] dark:shadow-[0_0_20px_rgba(59,130,246,0.1)];
+  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 shadow-[0_0_20px_rgba(59, 130, 246, 0.06)] dark:shadow-[0_0_20px_rgba(59, 130, 246, 0.1)];
 }
 
 .reserva-dia-semana {
@@ -1106,7 +1108,7 @@
 }
 
 .reserva-hora-tarjeta.seleccionado {
-  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 text-blue-600 dark:text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.05)] dark:shadow-[0_0_15px_rgba(59,130,246,0.1)];
+  @apply border-blue-500 bg-blue-50/10 dark:bg-[#0f1126]/60 text-blue-600 dark:text-blue-400 shadow-[0_0_15px_rgba(59, 130, 246, 0.05)] dark:shadow-[0_0_15px_rgba(59, 130, 246, 0.1)];
 }
 
 .reserva-acciones {
@@ -1127,9 +1129,11 @@
   animation: none;
   mix-blend-mode: normal;
 }
+
 ::view-transition-old(root) {
   z-index: 1;
 }
+
 ::view-transition-new(root) {
   z-index: 9999;
 }

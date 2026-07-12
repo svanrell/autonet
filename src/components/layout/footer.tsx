@@ -93,11 +93,23 @@ export default function Footer() {
                         <ul className="contacto-footer">
                             <li className="contacto-item">
                                 <Phone size={16} className="icono-contacto" />
-                                <a href="tel:+34971450085" className="contacto-texto">+34 971 45 00 85</a>
+                                <Image 
+                                    src="/contacto/telefono.svg" 
+                                    alt="Telefono de contacto" 
+                                    width={160} 
+                                    height={16} 
+                                    className="object-contain dark:invert" 
+                                />
                             </li>
                             <li className="contacto-item">
                                 <Mail size={16} className="icono-contacto" />
-                                <a href="mailto:reservas.autonet@gmail.com" className="contacto-texto">reservas.autonet@gmail.com</a>
+                                <Image 
+                                    src="/contacto/email.svg" 
+                                    alt="Email de contacto" 
+                                    width={195} 
+                                    height={16} 
+                                    className="object-contain dark:invert" 
+                                />
                             </li>
                         </ul>
                         <Iframe
