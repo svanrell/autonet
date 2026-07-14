@@ -9,6 +9,8 @@ interface PasoFechaHoraProps {
   setSelectedDate: (day: DateObject) => void;
   selectedTime: string;
   setSelectedTime: (time: string) => void;
+  occupiedSlots: string[];
+  isLoadingSlots: boolean;
 }
 
 export default function PasoFechaHora({
@@ -16,7 +18,9 @@ export default function PasoFechaHora({
   selectedDate,
   setSelectedDate,
   selectedTime,
-  setSelectedTime
+  setSelectedTime,
+  occupiedSlots = [],
+  isLoadingSlots
 }: PasoFechaHoraProps) {
   return (
     <motion.div
@@ -57,38 +61,66 @@ export default function PasoFechaHora({
           <h3 className="reserva-horas-titulo">
             Horas Disponibles para el {selectedDate.dayNumber} de {selectedDate.month}
           </h3>
-          
-          <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2">Mañana</p>
-          <div className="reserva-horas-grid">
-            {timeSlots.morning.map((time) => (
-              <div
-                key={time}
-                onClick={() => setSelectedTime(time)}
-                className={`reserva-hora-tarjeta ${
-                  selectedTime === time ? "seleccionado" : ""
-                }`}
-              >
-                {time}
-              </div>
-            ))}
-          </div>
 
-          <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2 mt-4">Tarde</p>
-          <div className="reserva-horas-grid">
-            {timeSlots.afternoon.map((time) => (
-              <div
-                key={time}
-                onClick={() => setSelectedTime(time)}
-                className={`reserva-hora-tarjeta ${
-                  selectedTime === time ? "seleccionado" : ""
-                }`}
-              >
-                {time}
+          {isLoadingSlots ? (
+            <div className="flex flex-col items-center justify-center py-8 text-zinc-400 gap-3">
+              <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
+              <p className="text-xs font-medium">Buscando horas disponibles...</p>
+            </div>
+          ) : (
+            <>
+              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2">Mañana</p>
+              <div className="reserva-horas-grid">
+                {timeSlots.morning.map((time) => {
+                  const isOccupied = occupiedSlots.includes(time);
+                  const isSelected = selectedTime === time;
+                  
+                  return (
+                    <button
+                      key={time}
+                      type="button"
+                      disabled={isOccupied}
+                      onClick={() => setSelectedTime(time)}
+                      className={`reserva-hora-tarjeta text-left w-full transition-all duration-200 ${
+                        isSelected ? "seleccionado" : ""
+                      } ${
+                        isOccupied ? "opacity-30 cursor-not-allowed bg-zinc-900/50 text-zinc-500 line-through border-transparent" : ""
+                      }`}
+                    >
+                      {time}
+                    </button>
+                  );
+                })}
               </div>
-            ))}
-          </div>
+
+              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2 mt-4">Tarde</p>
+              <div className="reserva-horas-grid">
+                {timeSlots.afternoon.map((time) => {
+                  const isOccupied = occupiedSlots.includes(time);
+                  const isSelected = selectedTime === time;
+
+                  return (
+                    <button
+                      key={time}
+                      type="button"
+                      disabled={isOccupied}
+                      onClick={() => setSelectedTime(time)}
+                      className={`reserva-hora-tarjeta text-left w-full transition-all duration-200 ${
+                        isSelected ? "seleccionado" : ""
+                      } ${
+                        isOccupied ? "opacity-30 cursor-not-allowed bg-zinc-900/50 text-zinc-500 line-through border-transparent" : ""
+                      }`}
+                    >
+                      {time}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </motion.div>
       )}
     </motion.div>
   );
 }
+

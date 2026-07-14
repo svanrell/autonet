@@ -173,6 +173,37 @@ export async function POST(request: Request) {
 
     const calendar = google.calendar({ version: "v3", auth });
 
+    // Check if the requested slot is already taken in Google Calendar
+    const timeMinDate = new Date(`${dateString}T00:00:00`);
+    timeMinDate.setHours(timeMinDate.getHours() - 4);
+    const timeMaxDate = new Date(`${dateString}T23:59:59`);
+    timeMaxDate.setHours(timeMaxDate.getHours() + 4);
+
+    const conflictCheck = await calendar.events.list({
+      calendarId: calendarIdEnv,
+      timeMin: timeMinDate.toISOString(),
+      timeMax: timeMaxDate.toISOString(),
+      singleEvents: true,
+      timeZone: "Europe/Madrid"
+    });
+
+    const existingEvents = conflictCheck.data.items || [];
+    const isSlotTaken = existingEvents.some((event) => {
+      const dateTimeStr = event.start?.dateTime;
+      if (!dateTimeStr) return false;
+      if (!dateTimeStr.startsWith(dateString)) return false;
+      const timeMatch = dateTimeStr.match(/T(\d{2}:\d{2})/);
+      return timeMatch ? timeMatch[1] === time : false;
+    });
+
+    if (isSlotTaken) {
+      return NextResponse.json(
+        { error: "La hora seleccionada ya no está disponible. Por favor, elige otra hora." },
+        { status: 400 }
+      );
+    }
+
+
     const eventDescription = `
 🚗 **Detalles de la Reserva de Autonet** 🚗
 
@@ -212,7 +243,7 @@ ${sanitizedClientNotes || "Ninguna"}
       message: "Reserva creada y sincronizada con Google Calendar."
     });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error al procesar la reserva con Google Calendar:", error);
     return NextResponse.json(
       { error: "Error interno del servidor al procesar la reserva." },
@@ -220,3 +251,68 @@ ${sanitizedClientNotes || "Ninguna"}
     );
   }
 }
+
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const dateString = searchParams.get("date");
+
+    if (!dateString || !/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+      return NextResponse.json(
+        { error: "El formato de fecha no es válido (debe ser AAAA-MM-DD)." },
+        { status: 400 }
+      );
+    }
+
+    const clientEmailEnv = process.env.GOOGLE_CLIENT_EMAIL;
+    const privateKeyEnv = process.env.GOOGLE_PRIVATE_KEY;
+    const calendarIdEnv = process.env.GOOGLE_CALENDAR_ID;
+
+    if (!clientEmailEnv || !privateKeyEnv || !calendarIdEnv) {
+      return NextResponse.json({ occupiedSlots: [] });
+    }
+
+    const auth = new google.auth.JWT({
+      email: clientEmailEnv,
+      key: privateKeyEnv.replace(/\\n/g, "\n"),
+      scopes: ["https://www.googleapis.com/auth/calendar"]
+    });
+
+    const calendar = google.calendar({ version: "v3", auth });
+
+    // Use wide margin around the date to handle any timezone shift, filtering on local starts
+    const timeMinDate = new Date(`${dateString}T00:00:00`);
+    timeMinDate.setHours(timeMinDate.getHours() - 4);
+    const timeMaxDate = new Date(`${dateString}T23:59:59`);
+    timeMaxDate.setHours(timeMaxDate.getHours() + 4);
+
+    const response = await calendar.events.list({
+      calendarId: calendarIdEnv,
+      timeMin: timeMinDate.toISOString(),
+      timeMax: timeMaxDate.toISOString(),
+      singleEvents: true,
+      timeZone: "Europe/Madrid"
+    });
+
+    const events = response.data.items || [];
+    const occupiedSlots = events
+      .map((event) => {
+        const dateTimeStr = event.start?.dateTime;
+        if (!dateTimeStr) return null;
+        if (!dateTimeStr.startsWith(dateString)) return null;
+
+        const timeMatch = dateTimeStr.match(/T(\d{2}:\d{2})/);
+        return timeMatch ? timeMatch[1] : null;
+      })
+      .filter((t): t is string => t !== null);
+
+    return NextResponse.json({ occupiedSlots });
+  } catch (error) {
+    console.error("Error al obtener eventos de Google Calendar:", error);
+    return NextResponse.json(
+      { error: "Error al obtener las horas ocupadas." },
+      { status: 500 }
+    );
+  }
+}
+

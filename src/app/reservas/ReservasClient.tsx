@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Calendar } from "lucide-react";
@@ -33,6 +33,37 @@ export default function ReservasClient() {
   const [error, setError] = useState<string | null>(null);
   const [availableDays] = useState<DateObject[]>(() => getNextDays());
 
+  const [occupiedSlots, setOccupiedSlots] = useState<string[]>([]);
+  const [isLoadingSlots, setIsLoadingSlots] = useState(false);
+
+  const handleDateSelect = (day: DateObject) => {
+    setSelectedDate(day);
+    setSelectedTime("");
+  };
+
+  useEffect(() => {
+    if (!selectedDate) return;
+
+    const fetchOccupiedSlots = async () => {
+      setIsLoadingSlots(true);
+      try {
+        const response = await fetch(`/api/reservas?date=${selectedDate.dateString}`);
+        if (response.ok) {
+          const data = await response.json();
+          setOccupiedSlots(data.occupiedSlots || []);
+        } else {
+          console.error("Error al obtener horas ocupadas");
+        }
+      } catch (err) {
+        console.error("Error de conexión al obtener horas ocupadas:", err);
+      } finally {
+        setIsLoadingSlots(false);
+      }
+    };
+
+    fetchOccupiedSlots();
+  }, [selectedDate]);
+
   const handleNextStep = () => {
     if (step < 4) setStep(step + 1);
   };
@@ -48,7 +79,7 @@ export default function ReservasClient() {
 
   const isStepValid = () => {
     if (step === 1) return selectedService !== null;
-    if (step === 2) return selectedDate !== null && selectedTime !== "";
+    if (step === 2) return selectedDate !== null && selectedTime !== "" && !isLoadingSlots;
     if (step === 3) return clientInfo.name !== "" && clientInfo.email !== "" && clientInfo.phone !== "";
     return true;
   };
@@ -86,9 +117,10 @@ export default function ReservasClient() {
       }
 
       setIsSubmitted(true);
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error al enviar reserva:", err);
-      setError(err.message || "Error de conexión. Inténtalo de nuevo.");
+      const message = err instanceof Error ? err.message : "Error de conexión. Inténtalo de nuevo.";
+      setError(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -147,9 +179,11 @@ export default function ReservasClient() {
                     <PasoFechaHora
                       availableDays={availableDays}
                       selectedDate={selectedDate}
-                      setSelectedDate={setSelectedDate}
+                      setSelectedDate={handleDateSelect}
                       selectedTime={selectedTime}
                       setSelectedTime={setSelectedTime}
+                      occupiedSlots={occupiedSlots}
+                      isLoadingSlots={isLoadingSlots}
                     />
                   )}
 
