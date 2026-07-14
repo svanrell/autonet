@@ -83,9 +83,7 @@ export default function PasoFechaHora({
                       onClick={() => setSelectedTime(time)}
                       className={`reserva-hora-tarjeta text-left w-full transition-all duration-200 ${
                         isSelected ? "seleccionado" : ""
-                      } ${
-                        isOccupied ? "opacity-30 cursor-not-allowed bg-zinc-900/50 text-zinc-500 line-through border-transparent" : ""
-                      }`}
+                      } disabled:opacity-30 disabled:cursor-not-allowed disabled:bg-zinc-900/50 disabled:text-zinc-500 disabled:line-through disabled:border-transparent`}
                     >
                       {time}
                     </button>
@@ -107,9 +105,7 @@ export default function PasoFechaHora({
                       onClick={() => setSelectedTime(time)}
                       className={`reserva-hora-tarjeta text-left w-full transition-all duration-200 ${
                         isSelected ? "seleccionado" : ""
-                      } ${
-                        isOccupied ? "opacity-30 cursor-not-allowed bg-zinc-900/50 text-zinc-500 line-through border-transparent" : ""
-                      }`}
+                      } disabled:opacity-30 disabled:cursor-not-allowed disabled:bg-zinc-900/50 disabled:text-zinc-500 disabled:line-through disabled:border-transparent`}
                     >
                       {time}
                     </button>
