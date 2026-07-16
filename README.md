@@ -4,7 +4,7 @@ Este es un proyecto web moderno construido con **Next.js 16**, **TypeScript**, *
 
 ---
 
-## 🚀 Características Principales
+## Características Principales
 
 * **Reserva en 4 Pasos**: Wizard de reserva online altamente dinámico, modular y animado.
   * **Selección de Servicio**: Elige entre limpieza exterior, interior, tapicería o detallado premium.
@@ -16,7 +16,7 @@ Este es un proyecto web moderno construido con **Next.js 16**, **TypeScript**, *
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 * **Framework**: [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
 * **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
@@ -28,7 +28,7 @@ Este es un proyecto web moderno construido con **Next.js 16**, **TypeScript**, *
 
 ---
 
-## 📂 Estructura del Proyecto (Módulos Clave)
+## Estructura del Proyecto (Módulos Clave)
 
 El módulo de reservas se ha modularizado para evitar la complejidad y el acoplamiento:
 
@@ -50,7 +50,7 @@ src/app/reservas/
 
 ---
 
-## ⚙️ Configuración y Ejecución
+## Configuración y Ejecución
 
 Asegúrate de tener instalado [Node.js](https://nodejs.org/) y [pnpm](https://pnpm.io/).
 
