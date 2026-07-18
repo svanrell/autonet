@@ -39,7 +39,7 @@ export default function LegalPage() {
             <ul className="list-disc pl-6 mb-6 space-y-2 text-zinc-600 dark:text-zinc-400 text-sm md:text-base">
               <li><strong>Denominación social:</strong> Autonet Limpieza de Coches S.L.</li>
               <li><strong>CIF / NIF:</strong> B-12345678 (Simulado para fines de demostración)</li>
-              <li><strong>Domicilio social:</strong> Calle de la Limpieza 123, Barcelona, España</li>
+              <li><strong>Domicilio social:</strong> Carrer de Vicenç Joan i Rosselló, 42, Ponent, 07013 Palma, Illes Balears</li>
               <li><strong>Email de contacto:</strong> reservas.autonet@gmail.com</li>
             </ul>
 
@@ -81,7 +81,7 @@ export default function LegalPage() {
               6. Ley Aplicable y Jurisdicción
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-sm md:text-base leading-relaxed">
-              La relación entre Autonet y el usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y Tribunales de la ciudad de Barcelona, España.
+              La relación entre Autonet y el usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y Tribunales de la ciudad de Palma, Illes Balears.
             </p>
           </section>
         </div>

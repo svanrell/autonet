@@ -34,7 +34,7 @@ export default function PrivacidadPage() {
               1. Responsable del Tratamiento de Datos
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-sm md:text-base leading-relaxed">
-              El responsable del tratamiento de sus datos personales recopilados a través de este sitio web es **Autonet Limpieza de Coches**, con domicilio social en Calle de la Limpieza 123, Barcelona, España, y correo electrónico de contacto reservas.autonet@gmail.com.
+              El responsable del tratamiento de sus datos personales recopilados a través de este sitio web es **Autonet Limpieza de Coches**, con domicilio social en Carrer de Vicenç Joan i Rosselló, 42, Ponent, 07013 Palma, Illes Balears, y correo electrónico de contacto reservas.autonet@gmail.com.
             </p>
 
             <h2 className="text-lg md:text-xl font-bold mt-8 mb-4 text-blue-600 dark:text-blue-400 font-display">

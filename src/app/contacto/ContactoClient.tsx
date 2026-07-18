@@ -129,7 +129,7 @@ export default function ContactoClient() {
                                         Visítanos
                                     </p>
                                     <h3>
-                                        Calle de la Limpieza 123, BCN
+                                        Carrer de Vicenç Joan i Rosselló, 42, Ponent, 07013 Palma, Illes Balears
                                     </h3>
                                     <p className="contacto-tarjeta-detalles">
                                         Servicio con cita previa
@@ -162,7 +162,7 @@ export default function ContactoClient() {
                                 <form onSubmit={handleSubmit} className="contacto-formulario">
                                     <div>
                                         <label htmlFor="nombre" className="contacto-etiqueta">
-                                            Nombre Completo
+                                            Nombre
                                         </label>
                                         <input
                                             type="text"
