@@ -16,8 +16,10 @@ import PasoFechaHora from "./components/steps/PasoFechaHora";
 import PasoDatos from "./components/steps/PasoDatos";
 import PasoResumen from "./components/steps/PasoResumen";
 import BotonesAccion from "./components/BotonesAccion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ReservasClient() {
+  const { language, t } = useLanguage();
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedDate, setSelectedDate] = useState<DateObject | null>(null);
@@ -31,7 +33,11 @@ export default function ReservasClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [availableDays] = useState<DateObject[]>(() => getNextDays());
+  const [availableDays, setAvailableDays] = useState<DateObject[]>([]);
+
+  useEffect(() => {
+    setAvailableDays(getNextDays(language));
+  }, [language]);
 
   const [occupiedSlots, setOccupiedSlots] = useState<string[]>([]);
   const [isLoadingSlots, setIsLoadingSlots] = useState(false);
@@ -113,13 +119,13 @@ export default function ReservasClient() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Ocurrió un error al procesar tu reserva.");
+        throw new Error(data.error || t("reservas.errors.generic"));
       }
 
       setIsSubmitted(true);
     } catch (err) {
       console.error("Error al enviar reserva:", err);
-      const message = err instanceof Error ? err.message : "Error de conexión. Inténtalo de nuevo.";
+      const message = err instanceof Error ? err.message : t("reservas.errors.generic");
       setError(message);
     } finally {
       setIsSubmitting(false);
@@ -141,11 +147,11 @@ export default function ReservasClient() {
             <div className="cabecera-reservas">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
                 <Calendar className="w-3.5 h-3.5" />
-                Reserva Online
+                {t("nav.book")}
               </span>
-              <h1 className="titulo-reservas">Reserva tu cita</h1>
+              <h1 className="titulo-reservas">{t("reservas.title")}</h1>
               <p className="descripcion-reservas">
-                Agenda tu limpieza de coche en menos de 2 minutos. Rellena los datos y confirmaremos tu cita por correo electrónico.
+                {t("reservas.subtitle")}
               </p>
             </div>
           )}

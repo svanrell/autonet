@@ -1,41 +1,46 @@
-import { ShieldCheck, Leaf, Clock, Sparkles } from "lucide-react";
+"use client";
 
-const features = [
-    {
-        icon: Leaf,
-        title: "Tecnología Ecológica",
-        description: "Utilizamos productos 100% biodegradables y un sistema inteligente de ahorro de agua que cuida el medio ambiente sin perder eficacia.",
-        gradient: "from-green-500/20 via-emerald-500/10 to-transparent",
-        iconColor: "text-green-400",
-        borderColor: "hover:border-green-500/30"
-    },
-    {
-        icon: ShieldCheck,
-        title: "Garantía de Calidad",
-        description: "Cada vehículo es tratado por profesionales certificados con herramientas de última generación, garantizando un acabado impecable y seguro.",
-        gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
-        iconColor: "text-blue-400",
-        borderColor: "hover:border-blue-500/30"
-    },
-    {
-        icon: Clock,
-        title: "Máxima Eficiencia",
-        description: "Olvídate de las largas esperas. Nuestro sistema de reserva automatizado te asegura el servicio a la hora exacta, optimizando tu tiempo.",
-        gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
-        iconColor: "text-amber-400",
-        borderColor: "hover:border-amber-500/30"
-    },
-    {
-        icon: Sparkles,
-        title: "Detallado Premium",
-        description: "Cuidamos hasta el más mínimo detalle. Limpieza profunda de tapicería, pulido de faros y tratamientos cerámicos para que brille como nuevo.",
-        gradient: "from-purple-500/20 via-fuchsia-500/10 to-transparent",
-        iconColor: "text-purple-400",
-        borderColor: "hover:border-purple-500/30"
-    }
-];
+import { ShieldCheck, Leaf, Clock, Sparkles } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Features() {
+    const { t } = useLanguage();
+
+    const features = [
+        {
+            icon: Leaf,
+            title: t("features.items.ecological.title"),
+            description: t("features.items.ecological.description"),
+            gradient: "from-green-500/20 via-emerald-500/10 to-transparent",
+            iconColor: "text-green-400",
+            borderColor: "hover:border-green-500/30"
+        },
+        {
+            icon: ShieldCheck,
+            title: t("features.items.quality.title"),
+            description: t("features.items.quality.description"),
+            gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
+            iconColor: "text-blue-400",
+            borderColor: "hover:border-blue-500/30"
+        },
+        {
+            icon: Clock,
+            title: t("features.items.efficiency.title"),
+            description: t("features.items.efficiency.description"),
+            gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
+            iconColor: "text-amber-400",
+            borderColor: "hover:border-amber-500/30"
+        },
+        {
+            icon: Sparkles,
+            title: t("features.items.detail.title"),
+            description: t("features.items.detail.description"),
+            gradient: "from-purple-500/20 via-fuchsia-500/10 to-transparent",
+            iconColor: "text-purple-400",
+            borderColor: "hover:border-purple-500/30"
+        }
+    ];
+
     return (
         <section className="py-24 bg-zinc-50/40 dark:bg-zinc-950/40 relative overflow-hidden">
             {/* Background elements */}
@@ -45,13 +50,13 @@ export default function Features() {
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <span className="text-xs font-bold uppercase tracking-widest text-blue-650 dark:text-blue-500 bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-500/10">
-                        ¿Por qué elegirnos?
+                        {t("features.badge")}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-black mt-6 mb-4 uppercase tracking-tight text-zinc-900 dark:text-white font-display">
-                        Elevamos el estándar del cuidado automotriz
+                        {t("features.title")}
                     </h2>
                     <p className="text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed">
-                        Combinamos innovación, sostenibilidad y pasión por el detalle para ofrecerte un servicio inigualable.
+                        {t("features.subtitle")}
                     </p>
                 </div>
 

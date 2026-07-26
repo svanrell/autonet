@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Iframe from "../ui/iframe";
+import { useLanguage } from "@/context/LanguageContext";
 
 import {
     Mail,
@@ -12,6 +13,7 @@ import {
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const { t } = useLanguage();
 
     return (
         <footer className="pie-principal">
@@ -30,7 +32,7 @@ export default function Footer() {
                             </div>
                         </Link>
                         <p className="descripcion-marca">
-                            Líderes en detallado y limpieza ecológica de vehículos. Cuidamos cada detalle de tu coche utilizando tecnología avanzada y productos respetuosos con el medio ambiente.
+                            {t("footer.description")}
                         </p>
                         <div className="redes-sociales">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="icono-red" aria-label="Instagram">
@@ -47,46 +49,46 @@ export default function Footer() {
 
                     {/* COLUMNA 2: ENLACES RÁPIDOS */}
                     <div className="columna-footer">
-                        <h3 className="titulo-columna">Enlaces Rápidos</h3>
+                        <h3 className="titulo-columna">{t("footer.quickLinks")}</h3>
                         <ul className="lista-enlaces-footer">
                             <li>
-                                <Link href="/" className="enlace-footer">Inicio</Link>
+                                <Link href="/" className="enlace-footer">{t("nav.home")}</Link>
                             </li>
                             <li>
-                                <Link href="/servicios" className="enlace-footer">Servicios</Link>
+                                <Link href="/servicios" className="enlace-footer">{t("nav.services")}</Link>
                             </li>
                             <li>
-                                <Link href="/testimonios" className="enlace-footer">Testimonios</Link>
+                                <Link href="/testimonios" className="enlace-footer">{t("nav.testimonials")}</Link>
                             </li>
                             <li>
-                                <Link href="/contacto" className="enlace-footer">Contacto</Link>
+                                <Link href="/contacto" className="enlace-footer">{t("nav.contact")}</Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* COLUMNA 3: HORARIOS */}
                     <div className="columna-footer">
-                        <h3 className="titulo-columna">Horarios</h3>
+                        <h3 className="titulo-columna">{t("footer.schedule")}</h3>
                         <ul className="horarios-footer">
                             <li className="horario-item">
-                                <span className="dia-semana">Lunes a Viernes</span>
+                                <span className="dia-semana">{t("footer.mondayToFriday")}</span>
                                 <span className="horas">08:00 - 13:00</span>
-                                <span className="horas">14:00-18:00</span>
+                                <span className="horas">14:00 - 18:00</span>
                             </li>
                             <li className="horario-item">
-                                <span className="dia-semana">Sábados y Domingos</span>
-                                <span className="horas cerrado">Cerrado</span>
+                                <span className="dia-semana">{t("footer.saturdayAndSunday")}</span>
+                                <span className="horas cerrado">{t("footer.closed")}</span>
                             </li>
                         </ul>
                         <div className="garantia-calidad">
                             <ShieldCheck size={16} className="text-blue-500" />
-                            <span>Garantía de satisfacción Autonet</span>
+                            <span>{t("footer.satisfactionGuarantee")}</span>
                         </div>
                     </div>
 
                     {/* COLUMNA 4: CONTACTO */}
                     <div className="columna-footer">
-                        <h3 className="titulo-columna">Contacto</h3>
+                        <h3 className="titulo-columna">{t("footer.contact")}</h3>
                         <ul className="contacto-footer">
                             <li className="contacto-item">
                                 <Phone size={16} className="icono-contacto" />
@@ -125,14 +127,14 @@ export default function Footer() {
                 {/* BARRA INFERIOR DE DERECHOS */}
                 <div className="barra-derechos">
                     <p className="texto-derechos">
-                        &copy; {currentYear} Autonet Limpieza de Coches. Todos los derechos reservados.
+                        &copy; {currentYear} Autonet Limpieza de Coches. {t("footer.allRightsReserved")}
                     </p>
                     <div className="enlaces-legales">
-                        <Link href="/privacidad" className="enlace-legal">Política de Privacidad</Link>
+                        <Link href="/privacidad" className="enlace-legal">{t("footer.privacyPolicy")}</Link>
                         <span className="separador-legal">|</span>
-                        <Link href="/cookies" className="enlace-legal">Política de Cookies</Link>
+                        <Link href="/cookies" className="enlace-legal">{t("footer.cookiePolicy")}</Link>
                         <span className="separador-legal">|</span>
-                        <Link href="/legal" className="enlace-legal">Aviso Legal</Link>
+                        <Link href="/legal" className="enlace-legal">{t("footer.legalNotice")}</Link>
                     </div>
                 </div>
 

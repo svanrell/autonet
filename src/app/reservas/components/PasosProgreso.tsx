@@ -1,16 +1,19 @@
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 interface PasosProgresoProps {
   step: number;
 }
 
 export default function PasosProgreso({ step }: PasosProgresoProps) {
+  const { t } = useLanguage();
   const steps = [
-    { num: 1, label: "Servicio" },
-    { num: 2, label: "Fecha y Hora" },
-    { num: 3, label: "Tus Datos" },
-    { num: 4, label: "Resumen" }
+    { num: 1, label: t("reservas.steps.service") },
+    { num: 2, label: t("reservas.steps.dateTime") },
+    { num: 3, label: t("reservas.steps.details") },
+    { num: 4, label: t("reservas.steps.summary") }
   ];
 
   return (

@@ -6,6 +6,7 @@ import reviews from "@/reviews.json";
 import { Star, Quote, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 const getInitials = (name: string) => {
     return name
@@ -32,6 +33,8 @@ const itemVariants = {
 } as const;
 
 export default function TestimoniosClient() {
+    const { t } = useLanguage();
+
     return (
         <>
             <NavBar />
@@ -45,13 +48,13 @@ export default function TestimoniosClient() {
                     <div className="cabecera-testimonios">
                         <div className="badge-testimonios">
                             <Sparkles className="w-3.5 h-3.5" />
-                            Opiniones de nuestros clientes
+                            {t("testimonios.badge")}
                         </div>
                         <h1 className="titulo-testimonios">
-                            Lo que dicen de nosotros
+                            {t("testimonios.title")}
                         </h1>
                         <p className="descripcion-testimonios">
-                            La satisfacción de nuestros clientes es nuestra mayor prioridad. Descubre las experiencias y opiniones de quienes ya confían en nosotros para el cuidado de sus vehículos.
+                            {t("testimonios.subtitle")}
                         </p>
                     </div>
 
@@ -106,7 +109,7 @@ export default function TestimoniosClient() {
                                                 {review.nombre}
                                             </h3>
                                             <p className="cliente-rol">
-                                                Cliente Verificado
+                                                {t("testimonios.verifiedClient")}
                                             </p>
                                         </div>
                                     </div>
@@ -119,13 +122,13 @@ export default function TestimoniosClient() {
                     <div className="contenedor-boton-reserva-testimonios">
                         <div className="reserva-testimonios-contenido">
                             <h2 className="reserva-testimonios-titulo">
-                                ¿Quieres dejar tu opinión?
+                                {t("testimonios.ctaTitle")}
                             </h2>
                             <p className="reserva-testimonios-desc">
-                                La experiencia de cada cliente es muy valiosa para nosotros. Agenda una cita hoy y experimenta nuestro servicio excepcional de detallado.
+                                {t("testimonios.ctaSubtitle")}
                             </p>
                             <Link href="/reservas" className="boton-reserva">
-                                Reservar Cita
+                                {t("testimonios.ctaBtn")}
                             </Link>
                         </div>
                         {/* Ambient blobs */}

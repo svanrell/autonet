@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface BotonesAccionProps {
   step: number;
@@ -16,6 +17,8 @@ export default function BotonesAccion({
   isStepValid,
   isSubmitting
 }: BotonesAccionProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="reserva-acciones">
       {step > 1 ? (
@@ -25,7 +28,7 @@ export default function BotonesAccion({
           className="reserva-boton-atras"
         >
           <span className="flex items-center gap-1">
-            <ChevronLeft size={14} /> Atrás
+            <ChevronLeft size={14} /> {t("reservas.actions.prev")}
           </span>
         </button>
       ) : (
@@ -40,7 +43,7 @@ export default function BotonesAccion({
           className="reserva-boton-siguiente"
         >
           <span className="flex items-center gap-1">
-            Siguiente <ChevronRight size={14} />
+            {t("reservas.actions.next")} <ChevronRight size={14} />
           </span>
         </button>
       ) : (
@@ -51,12 +54,12 @@ export default function BotonesAccion({
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
-              Procesando...
+              {t("reservas.actions.processing")}
               <Loader2 className="w-4 h-4 animate-spin" />
             </span>
           ) : (
             <span className="flex items-center gap-1">
-              Confirmar Cita <ChevronRight size={14} />
+              {t("reservas.actions.confirm")} <ChevronRight size={14} />
             </span>
           )}
         </button>

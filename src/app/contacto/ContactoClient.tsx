@@ -5,8 +5,10 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactoClient() {
+    const { t } = useLanguage();
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [mensaje, setMensaje] = useState("");
@@ -24,9 +26,6 @@ export default function ContactoClient() {
 
         setIsSubmitting(true);
 
-        // Sending the information to the owner
-        // WORK IN PROGRESS
-        // Code for send info
         console.log("Datos recibidos:");
         console.log(`Nombre: ${nombre}`);
         console.log(`Email: ${email}`);
@@ -48,13 +47,13 @@ export default function ContactoClient() {
                     {/* Cabecera de la página */}
                     <div className="contacto-cabecera">
                         <span className="contacto-subtitulo">
-                            ¿Hablamos?
+                            {t("contacto.badge")}
                         </span>
                         <h1 className="contacto-titulo">
-                            Ponte en contacto
+                            {t("contacto.title")}
                         </h1>
                         <p className="contacto-descripcion">
-                            ¿Tienes alguna duda sobre nuestros servicios de detallado o quieres reservar un lavado especial? Escríbenos y te responderemos lo antes posible.
+                            {t("contacto.subtitle")}
                         </p>
                     </div>
 
@@ -64,15 +63,13 @@ export default function ContactoClient() {
                         {/* Columna Izquierda: Tarjetas de Información de Contacto Interactivas */}
                         <div className="contacto-columna-tarjetas">
                             {/* Tarjeta 1: Escríbenos */}
-                            <div
-                                className="group contacto-tarjeta-enlace"
-                            >
+                            <div className="group contacto-tarjeta-enlace">
                                 <div className="contacto-tarjeta-icono">
                                     <Mail size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <p className="contacto-tarjeta-categoria">
-                                        Escríbenos
+                                        {t("contacto.cards.writeUs")}
                                     </p>
                                     <div className="mt-1 h-7 flex items-center">
                                         <Image
@@ -85,21 +82,19 @@ export default function ContactoClient() {
                                         />
                                     </div>
                                     <p className="contacto-tarjeta-detalles">
-                                        Respuesta en 24 - 48 horas hábiles
+                                        {t("contacto.cards.writeUsDetail")}
                                     </p>
                                 </div>
                             </div>
 
                             {/* Tarjeta 2: Llámanos */}
-                            <div
-                                className="group contacto-tarjeta-enlace"
-                            >
+                            <div className="group contacto-tarjeta-enlace">
                                 <div className="contacto-tarjeta-icono">
                                     <Phone size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <p className="contacto-tarjeta-categoria">
-                                        Llámanos
+                                        {t("contacto.cards.callUs")}
                                     </p>
                                     <div className="mt-1 h-7 flex items-center">
                                         <Image
@@ -112,27 +107,25 @@ export default function ContactoClient() {
                                         />
                                     </div>
                                     <p className="contacto-tarjeta-detalles">
-                                        Disponible L-V 9:00 - 19:00
+                                        {t("contacto.cards.callUsDetail")}
                                     </p>
                                 </div>
                             </div>
 
                             {/* Tarjeta 3: Visítanos */}
-                            <div
-                                className="group contacto-tarjeta-enlace"
-                            >
+                            <div className="group contacto-tarjeta-enlace">
                                 <div className="contacto-tarjeta-icono">
                                     <MapPin size={24} />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <p className="contacto-tarjeta-categoria">
-                                        Visítanos
+                                        {t("contacto.cards.visitUs")}
                                     </p>
                                     <h3>
-                                        Carrer de Vicenç Joan i Rosselló, 42, Ponent, 07013 Palma, Illes Balears
+                                        {t("contacto.cards.visitUsAddress")}
                                     </h3>
                                     <p className="contacto-tarjeta-detalles">
-                                        Servicio con cita previa
+                                        {t("contacto.cards.visitUsDetail")}
                                     </p>
                                 </div>
                             </div>
@@ -140,29 +133,29 @@ export default function ContactoClient() {
 
                         {/* Columna Derecha: Formulario de Contacto */}
                         <div className="contacto-formulario-contenedor">
-                            <h2 className="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
+                            <h2 className="text-2xl font-bold mb-6">{t("contacto.form.title")}</h2>
 
                             {enviado ? (
                                 <div className="contacto-exito-contenedor">
                                     <div className="contacto-exito-icono">
                                         <Send size={24} />
                                     </div>
-                                    <h3 className="contacto-exito-titulo">¡Mensaje enviado con éxito!</h3>
+                                    <h3 className="contacto-exito-titulo">{t("contacto.form.successTitle")}</h3>
                                     <p className="contacto-exito-descripcion">
-                                        Muchas gracias por contactar con Autonet. Nos pondremos en contacto contigo muy pronto.
+                                        {t("contacto.form.successDesc")}
                                     </p>
                                     <button
                                         onClick={() => setEnviado(false)}
                                         className="contacto-exito-boton"
                                     >
-                                        Enviar otro mensaje
+                                        {t("contacto.form.sendAnotherBtn")}
                                     </button>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="contacto-formulario">
                                     <div>
                                         <label htmlFor="nombre" className="contacto-etiqueta">
-                                            Nombre
+                                            {t("contacto.form.name")}
                                         </label>
                                         <input
                                             type="text"
@@ -171,13 +164,13 @@ export default function ContactoClient() {
                                             value={nombre}
                                             onChange={(e) => setNombre(e.target.value)}
                                             className="contacto-entrada"
-                                            placeholder="Ej. Juan Pérez"
+                                            placeholder={t("contacto.form.namePlaceholder")}
                                         />
                                     </div>
 
                                     <div>
                                         <label htmlFor="email" className="contacto-etiqueta">
-                                            Correo Electrónico
+                                            {t("contacto.form.email")}
                                         </label>
                                         <input
                                             type="email"
@@ -186,13 +179,13 @@ export default function ContactoClient() {
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             className="contacto-entrada"
-                                            placeholder="juan@ejemplo.com"
+                                            placeholder={t("contacto.form.emailPlaceholder")}
                                         />
                                     </div>
 
                                     <div>
                                         <label htmlFor="mensaje" className="contacto-etiqueta">
-                                            Mensaje
+                                            {t("contacto.form.message")}
                                         </label>
                                         <textarea
                                             id="mensaje"
@@ -201,11 +194,11 @@ export default function ContactoClient() {
                                             value={mensaje}
                                             onChange={(e) => setMensaje(e.target.value)}
                                             className="contacto-entrada resize-none"
-                                            placeholder="Cuéntanos en qué podemos ayudarte..."
+                                            placeholder={t("contacto.form.messagePlaceholder")}
                                         />
                                     </div>
 
-                                    {/* Honeypot Spam Protection (Invisible for human users) */}
+                                    {/* Honeypot Spam Protection */}
                                     <div className="hidden" aria-hidden="true">
                                         <input
                                             type="text"
@@ -224,12 +217,12 @@ export default function ContactoClient() {
                                     >
                                         {isSubmitting ? (
                                             <>
-                                                <span>Enviando...</span>
+                                                <span>{t("contacto.form.sendingBtn")}</span>
                                                 <div className="h-3 w-3 animate-spin rounded-full border border-white border-t-transparent" />
                                             </>
                                         ) : (
                                             <>
-                                                <span>Enviar Mensaje</span>
+                                                <span>{t("contacto.form.sendBtn")}</span>
                                                 <Send size={12} />
                                             </>
                                         )}

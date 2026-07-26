@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface HeroProps {
   badge?: React.ReactNode;
@@ -12,10 +13,17 @@ interface HeroProps {
 
 function Hero({ badge, title, subtitle, actions }: HeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["experto", "a mano", "puntual", "confiable"],
-    []
-  );
+  const { t, language } = useLanguage();
+
+  // Dynamically resolve titles array based on current language
+  const titles = useMemo(() => {
+    return [
+      t("hero.words.0"),
+      t("hero.words.1"),
+      t("hero.words.2"),
+      t("hero.words.3"),
+    ];
+  }, [t, language]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -36,13 +44,13 @@ function Hero({ badge, title, subtitle, actions }: HeroProps) {
           <div className="portada-grupo-textos">
             <h1 className="portada-titulo">
               <span className="portada-texto-destacado">
-                {title || "Autonet es"}
+                {title || t("hero.title")}
               </span>
               <span className="portada-caja-animacion">
                 &nbsp;
                 {titles.map((titleText, index) => (
                   <motion.span
-                    key={index}
+                    key={`${language}-${index}`}
                     className="portada-palabra-animada"
                     initial={{ opacity: 0, y: -150 }}
                     transition={{ type: "spring", stiffness: 50 }}

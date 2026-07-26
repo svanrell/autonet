@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { services, type Service } from "@/data/services";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PasoServicioProps {
   selectedService: Service | null;
@@ -8,6 +9,8 @@ interface PasoServicioProps {
 }
 
 export default function PasoServicio({ selectedService, onServiceSelect }: PasoServicioProps) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       key="step1"
@@ -16,7 +19,7 @@ export default function PasoServicio({ selectedService, onServiceSelect }: PasoS
       exit={{ opacity: 0, x: -20 }}
       className="space-y-4"
     >
-      <h2 className="text-lg font-bold text-white mb-2">1. Selecciona un Servicio</h2>
+      <h2 className="text-lg font-bold text-white mb-2">{t("reservas.stepTitles.service")}</h2>
       <div className="reserva-servicios-grid">
         {services.map((service) => {
           const Icon = service.icon;
@@ -35,8 +38,8 @@ export default function PasoServicio({ selectedService, onServiceSelect }: PasoS
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="reserva-servicio-nombre">{service.name}</h3>
-                  <p className="reserva-servicio-desc">{service.description}</p>
+                  <h3 className="reserva-servicio-nombre">{t(`services.${service.id}.name`)}</h3>
+                  <p className="reserva-servicio-desc">{t(`services.${service.id}.description`)}</p>
                 </div>
               </div>
               <div className="reserva-servicio-precio-tiempo">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Outfit, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -58,7 +59,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { DateObject } from "../../types";
 import { timeSlots } from "../../utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PasoFechaHoraProps {
   availableDays: DateObject[];
@@ -22,6 +23,8 @@ export default function PasoFechaHora({
   occupiedSlots = [],
   isLoadingSlots
 }: PasoFechaHoraProps) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       key="step2"
@@ -31,7 +34,7 @@ export default function PasoFechaHora({
       className="space-y-6"
     >
       <div>
-        <h2 className="text-lg font-bold text-white mb-3">2. Selecciona la Fecha</h2>
+        <h2 className="text-lg font-bold text-white mb-3">{t("reservas.stepTitles.dateTime")}</h2>
         <div className="reserva-dias-grid">
           {availableDays.map((day) => {
             const isSelected = selectedDate?.dateString === day.dateString;
@@ -59,17 +62,17 @@ export default function PasoFechaHora({
           animate={{ opacity: 1, y: 0 }}
         >
           <h3 className="reserva-horas-titulo">
-            Horas Disponibles para el {selectedDate.dayNumber} de {selectedDate.month}
+            {t("reservas.hoursAvailableFor", { day: selectedDate.dayNumber, month: selectedDate.month })}
           </h3>
 
           {isLoadingSlots ? (
             <div className="flex flex-col items-center justify-center py-8 text-zinc-400 gap-3">
               <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-              <p className="text-xs font-medium">Buscando horas disponibles...</p>
+              <p className="text-xs font-medium">{t("reservas.loadingSlots")}</p>
             </div>
           ) : (
             <>
-              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2">Mañana</p>
+              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2">{t("reservas.morning")}</p>
               <div className="reserva-horas-grid">
                 {timeSlots.morning.map((time) => {
                   const isOccupied = occupiedSlots.includes(time);
@@ -91,7 +94,7 @@ export default function PasoFechaHora({
                 })}
               </div>
 
-              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2 mt-4">Tarde</p>
+              <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-wider mb-2 mt-4">{t("reservas.afternoon")}</p>
               <div className="reserva-horas-grid">
                 {timeSlots.afternoon.map((time) => {
                   const isOccupied = occupiedSlots.includes(time);

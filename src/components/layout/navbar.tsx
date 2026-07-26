@@ -10,17 +10,20 @@ import {
     X          // Para cerrar menú móvil
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-
-const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/servicios", label: "Servicios" },
-    { href: "/testimonios", label: "Testimonios" },
-    { href: "/contacto", label: "Contacto" },
-];
+import { LanguageToggle } from "@/components/ui/language-toggle";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { t } = useLanguage();
+
+    const links = [
+        { href: "/", label: t("nav.home") },
+        { href: "/servicios", label: t("nav.services") },
+        { href: "/testimonios", label: t("nav.testimonials") },
+        { href: "/contacto", label: t("nav.contact") },
+    ];
 
     return (
         <header className="cabecera-principal">
@@ -70,13 +73,15 @@ export default function NavBar() {
                     {/* 3. BOTÓN RESERVA */}
                     <div className="contenedor-boton gap-4">
                         <Link href="/reservas" className="boton-reserva">
-                            Reserva
+                            {t("nav.book")}
                         </Link>
+                        <LanguageToggle />
                         <ThemeToggle />
                     </div>
 
                     {/* BOTÓN MENÚ MÓVIL */}
-                    <div className="boton-menu-movil items-center gap-4">
+                    <div className="boton-menu-movil items-center gap-2 md:gap-4">
+                        <LanguageToggle />
                         <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -115,7 +120,7 @@ export default function NavBar() {
                             onClick={() => setIsOpen(false)}
                             className="boton-reserva-movil"
                         >
-                            Reserva
+                            {t("nav.book")}
                         </Link>
                     </div>
                 </div>

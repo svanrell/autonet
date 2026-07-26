@@ -5,27 +5,32 @@ import Footer from "@/components/layout/footer";
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/data/services";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServiciosClient() {
+    const { t } = useLanguage();
+
     return (
         <>
             <Navbar />
             <main>
                 <div className="contenedor-principal-servicios">
                     <div className="contenedor-servicios">
-                        <h1>Nuestros Servicios</h1>
-                        <p>En Autonet, nos esforzamos por ofrecer servicios de la más alta calidad para satisfacer todas las necesidades de nuestros clientes. A continuación, te presentamos nuestros servicios:</p>
+                        <h1>{t("serviciosPage.title")}</h1>
+                        <p>{t("serviciosPage.subtitle")}</p>
                     </div>
                     <div className="contenedor-servicios-tipos">
                         {services.map((servicio, index) => {
+                            const localizedName = t(`services.${servicio.id}.name`);
+                            const localizedDescription = t(`services.${servicio.id}.description`);
                             return (
                                 <div key={index} className="contenedor-servicio">
                                     <div className="contenedor-servicio-texto">
-                                        <h2>{servicio.name}</h2>
-                                        <p>{servicio.description}</p>
+                                        <h2>{localizedName !== `services.${servicio.id}.name` ? localizedName : servicio.name}</h2>
+                                        <p>{localizedDescription !== `services.${servicio.id}.description` ? localizedDescription : servicio.description}</p>
                                     </div>
                                     <div className="contenedor-servicio-imagen-wrapper">
-                                        <Image src={servicio.imagen} alt={servicio.name} width={500} height={500} />
+                                        <Image src={servicio.imagen} alt={localizedName} width={500} height={500} />
                                     </div>
                                 </div>
                             )
@@ -33,9 +38,9 @@ export default function ServiciosClient() {
                     </div>
                     <div className="contenedor-boton-reserva-servicios">
                         <div className="contenedor-boton-reserva-servicios-contenido">
-                            <h1>¿Listo para reservar?</h1>
-                            <p>Reserva tu cita online en menos de 2 minutos y experimenta el verdadero detallado automotriz.</p>
-                            <Link href="/reservas" className="boton-reserva">Reservar Cita</Link>
+                            <h1>{t("serviciosPage.ctaTitle")}</h1>
+                            <p>{t("serviciosPage.ctaSubtitle")}</p>
+                            <Link href="/reservas" className="boton-reserva">{t("serviciosPage.ctaBtn")}</Link>
                         </div>
                         <div className="glow-blob-1" />
                         <div className="glow-blob-2" />
