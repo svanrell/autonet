@@ -3,19 +3,21 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Calendar } from "lucide-react";
 import Link from "next/link";
 import { type Service } from "@/data/services";
-import { DateObject } from "../types";
+import { ClientInfo, DateObject } from "../types";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface PantallaExitoProps {
   selectedService: Service | null;
   selectedDate: DateObject | null;
   selectedTime: string;
+  clientInfo?: ClientInfo;
 }
 
 export default function PantallaExito({
   selectedService,
   selectedDate,
-  selectedTime
+  selectedTime,
+  clientInfo
 }: PantallaExitoProps) {
   const { t, language } = useLanguage();
 
@@ -38,14 +40,24 @@ export default function PantallaExito({
     
     const dates = `${formatGoogleUTC(localDate)}/${formatGoogleUTC(endDate)}`;
     
-    const text = encodeURIComponent(`🚗 Cita Autonet: ${serviceName}`);
+    const carInfo = clientInfo?.carModel ? ` - ${clientInfo.carModel}` : "";
+    const text = encodeURIComponent(`🚗 Cita Autonet: ${serviceName}${carInfo}`);
+    const location = encodeURIComponent("Carrer de Vicenç Joan i Rosselló, 42, Ponent, 07013 Palma, Illes Balears");
+
     const details = encodeURIComponent(
+      `🚗 DETALLES DE LA RESERVA AUTONET 🚗\n\n` +
       `Servicio: ${serviceName}\n` +
       `Precio: ${selectedService.price}€\n` +
-      `Duración: ${selectedService.duration}`
+      `Duración: ${selectedService.duration}\n` +
+      (clientInfo?.carModel ? `Modelo del coche: ${clientInfo.carModel}\n` : "") +
+      (clientInfo?.name ? `Nombre: ${clientInfo.name}\n` : "") +
+      (clientInfo?.phone ? `Teléfono: ${clientInfo.phone}\n` : "") +
+      (clientInfo?.email ? `Email: ${clientInfo.email}\n` : "") +
+      (clientInfo?.notes ? `Notas adicionales: ${clientInfo.notes}\n` : "") +
+      `\nUbicación: Carrer de Vicenç Joan i Rosselló, 42, Palma`
     );
     
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}`;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}`;
   };
 
   return (
@@ -93,6 +105,12 @@ export default function PantallaExito({
           <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">{t("reservas.summary.selectedService")}</span>
           <span className="text-white text-xs font-bold">{serviceName}</span>
         </div>
+        {clientInfo?.carModel && (
+          <div className="flex justify-between border-b border-zinc-900 pb-2">
+            <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">{t("reservas.summary.carModel")}</span>
+            <span className="text-white text-xs font-bold">{clientInfo.carModel}</span>
+          </div>
+        )}
         <div className="flex justify-between border-b border-zinc-900 pb-2">
           <span className="text-zinc-500 text-xs uppercase tracking-wider font-semibold">{t("reservas.summary.date")}</span>
           <span className="text-white text-xs font-bold">
@@ -114,7 +132,7 @@ export default function PantallaExito({
           href={buildGoogleCalendarUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-850 hover:bg-zinc-800 text-white border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
+          className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 hover:border-zinc-600 transition-all cursor-pointer shadow-md"
         >
           <Calendar size={14} className="text-blue-400" />
           {t("reservas.success.addToCalendar")}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, SubmitEvent } from "react";
+import { useState } from "react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
@@ -14,9 +14,10 @@ export default function ContactoClient() {
     const [mensaje, setMensaje] = useState("");
     const [enviado, setEnviado] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [honeypot, setHoneypot] = useState("");
 
-    const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // Honeypot spam prevention
@@ -25,17 +26,39 @@ export default function ContactoClient() {
         }
 
         setIsSubmitting(true);
+        setError(null);
 
-        console.log("Datos recibidos:");
-        console.log(`Nombre: ${nombre}`);
-        console.log(`Email: ${email}`);
-        console.log(`Mensaje: ${mensaje}`);
+        try {
+            const response = await fetch("/api/contacto", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nombre,
+                    email,
+                    mensaje,
+                    honeypot
+                })
+            });
 
-        setIsSubmitting(false);
-        setNombre("");
-        setEmail("");
-        setMensaje("");
-        setEnviado(true);
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Error al enviar el mensaje.");
+            }
+
+            setNombre("");
+            setEmail("");
+            setMensaje("");
+            setEnviado(true);
+        } catch (err) {
+            console.error("Error enviando formulario de contacto:", err);
+            const msg = err instanceof Error ? err.message : "Error al procesar la solicitud.";
+            setError(msg);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -210,10 +233,16 @@ export default function ContactoClient() {
                                         />
                                     </div>
 
+                                    {error && (
+                                        <div className="p-3 rounded-lg border border-red-500/20 bg-red-500/10 text-red-400 text-xs font-semibold text-center">
+                                            {error}
+                                        </div>
+                                    )}
+
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="contacto-boton-enviar disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="contacto-boton-enviar disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                                     >
                                         {isSubmitting ? (
                                             <>

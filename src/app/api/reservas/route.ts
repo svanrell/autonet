@@ -62,7 +62,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Server-side validation of the service to prevent price/duration manipulation from client
+    // Server-side validation of the service
     const serviceId = typeof service === "object" ? service?.id : service;
     const matchedService = services.find((s) => s.id === serviceId);
 
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
     }
 
     const { name: serviceName, duration, price } = matchedService;
-    const { name: clientName, email: clientEmail, phone: clientPhone, notes: clientNotes } = clientInfo;
+    const { name: clientName, email: clientEmail, phone: clientPhone, carModel, notes: clientNotes } = clientInfo;
 
     // Strict Input Validation
     if (typeof dateString !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
@@ -98,6 +98,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (typeof carModel !== "string" || carModel.trim().length < 1) {
+      return NextResponse.json(
+        { error: "El modelo del coche es obligatorio." },
+        { status: 400 }
+      );
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (typeof clientEmail !== "string" || !emailRegex.test(clientEmail)) {
       return NextResponse.json(
@@ -114,7 +121,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Sanitize string inputs to prevent HTML/script injection in calendar events
+    // Sanitize string inputs
     const sanitize = (str: string) => {
       if (typeof str !== "string") return "";
       return str
@@ -126,17 +133,17 @@ export async function POST(request: Request) {
     };
 
     const sanitizedClientName = sanitize(clientName.trim());
+    const sanitizedCarModel = sanitize(carModel.trim());
     const sanitizedClientNotes = sanitize((clientNotes || "").trim());
     const sanitizedClientPhone = sanitize(clientPhone.trim());
 
-    // Parse duration (e.g., "45 min", "60 min")
+    // Parse duration
     const durationMin = parseInt(duration.replace(/\D/g, ""), 10) || 60;
 
     // Timezone-independent date calculation
     const [year, month, day] = dateString.split("-").map(Number);
     const [hours, minutes] = time.split(":").map(Number);
 
-    // Create start Date using UTC constructor to prevent timezone offsets during parsing
     const start = new Date(Date.UTC(year, month - 1, day, hours, minutes));
     const end = new Date(start.getTime() + durationMin * 60 * 1000);
 
@@ -152,7 +159,7 @@ export async function POST(request: Request) {
     const privateKeyEnv = process.env.GOOGLE_PRIVATE_KEY;
     const calendarIdEnv = process.env.GOOGLE_CALENDAR_ID;
 
-    // Check if configuration is present. If not, log a warning and return simulated success
+    // Check if configuration is present
     if (!clientEmailEnv || !privateKeyEnv || !calendarIdEnv) {
       console.warn(
         "Google Calendar API credentials are not fully configured in environment variables. Simulating successful registration."
@@ -164,7 +171,7 @@ export async function POST(request: Request) {
       });
     }
 
-    // Authenticate with Google API using JWT options object
+    // Authenticate with Google API
     const auth = new google.auth.JWT({
       email: clientEmailEnv,
       key: privateKeyEnv.replace(/\\n/g, "\n"),
@@ -173,7 +180,7 @@ export async function POST(request: Request) {
 
     const calendar = google.calendar({ version: "v3", auth });
 
-    // Check if the requested slot is already taken in Google Calendar
+    // Check conflict
     const timeMinDate = new Date(`${dateString}T00:00:00`);
     timeMinDate.setHours(timeMinDate.getHours() - 4);
     const timeMaxDate = new Date(`${dateString}T23:59:59`);
@@ -203,7 +210,6 @@ export async function POST(request: Request) {
       );
     }
 
-
     const eventDescription = `
 🚗 **Detalles de la Reserva de Autonet** 🚗
 
@@ -211,6 +217,9 @@ export async function POST(request: Request) {
 - Nombre: ${sanitizedClientName}
 - Teléfono: ${sanitizedClientPhone}
 - Email: ${clientEmail}
+
+**Vehículo:**
+- Modelo: ${sanitizedCarModel}
 
 **Servicio:**
 - Tipo: ${serviceName}
@@ -224,7 +233,7 @@ ${sanitizedClientNotes || "Ninguna"}
     const response = await calendar.events.insert({
       calendarId: calendarIdEnv,
       requestBody: {
-        summary: `🚗 Reserva Autonet: ${serviceName} - ${sanitizedClientName}`,
+        summary: `🚗 Reserva Autonet: ${serviceName} - ${sanitizedCarModel} (${sanitizedClientName})`,
         description: eventDescription,
         start: {
           dateTime: startISO,
@@ -280,7 +289,6 @@ export async function GET(request: Request) {
 
     const calendar = google.calendar({ version: "v3", auth });
 
-    // Use wide margin around the date to handle any timezone shift, filtering on local starts
     const timeMinDate = new Date(`${dateString}T00:00:00`);
     timeMinDate.setHours(timeMinDate.getHours() - 4);
     const timeMaxDate = new Date(`${dateString}T23:59:59`);
@@ -315,4 +323,3 @@ export async function GET(request: Request) {
     );
   }
 }
-

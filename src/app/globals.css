@@ -517,7 +517,7 @@
 }
 
 .portada-titulo {
-  @apply text-5xl sm:text-7xl md:text-8xl lg:text-9xl max-w-5xl tracking-tighter text-center font-extrabold flex flex-col items-center leading-none;
+  @apply text-3xl sm:text-6xl md:text-8xl lg:text-9xl max-w-5xl tracking-tighter text-center font-extrabold flex flex-col items-center leading-none px-2;
 }
 
 .portada-texto-destacado {
@@ -527,11 +527,11 @@
 }
 
 .portada-caja-animacion {
-  @apply relative flex w-full justify-center overflow-hidden text-center h-[1.4em] md:pb-2 md:pt-1;
+  @apply relative flex w-full justify-center overflow-hidden text-center h-[1.3em] md:h-[1.4em] md:pb-2 md:pt-1;
 }
 
 .portada-palabra-animada {
-  @apply absolute font-black bg-linear-to-r from-zinc-900 via-zinc-800 to-zinc-700 dark:from-white dark:via-zinc-100 dark:to-zinc-300 bg-clip-text text-transparent uppercase tracking-wider text-4xl sm:text-6xl md:text-7xl lg:text-8xl;
+  @apply absolute font-black bg-linear-to-r from-zinc-900 via-zinc-800 to-zinc-700 dark:from-white dark:via-zinc-100 dark:to-zinc-300 bg-clip-text text-transparent uppercase tracking-wider text-2xl sm:text-5xl md:text-7xl lg:text-8xl whitespace-nowrap;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -540,11 +540,11 @@
 }
 
 .portada-descripcion {
-  @apply text-base md:text-lg leading-relaxed tracking-normal text-zinc-600 dark:text-zinc-400 max-w-2xl text-center font-normal mt-2;
+  @apply text-sm sm:text-base md:text-lg leading-relaxed tracking-normal text-zinc-600 dark:text-zinc-400 max-w-2xl text-center font-normal mt-2 px-4;
 }
 
 .portada-botones {
-  @apply flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4;
+  @apply flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-4 px-4 sm:px-0;
 }
 
 
@@ -990,11 +990,11 @@
 }
 
 .reserva-contenedor-pasos {
-  @apply max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md relative z-10;
+  @apply max-w-4xl mx-auto p-4 sm:p-6 md:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-900/80 backdrop-blur-md relative z-10;
 }
 
 .reserva-pasos-cabecera {
-  @apply flex justify-between items-center mb-8 border-b border-zinc-200 dark:border-zinc-900/80 pb-6;
+  @apply flex justify-between items-center mb-8 border-b border-zinc-200 dark:border-zinc-900/80 pb-6 overflow-x-auto gap-2 sm:gap-4 no-scrollbar;
 }
 
 .reserva-paso-indicador {

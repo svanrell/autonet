@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
-    Sparkles,  // Para el icono del logo
     Menu,      // Para abrir menú móvil
     X          // Para cerrar menú móvil
 } from "lucide-react";
@@ -32,15 +31,15 @@ export default function NavBar() {
 
                     {/* 1. LOGO */}
                     <Link href="/" className="logo-completo group">
-                        <div className="circulo-logo">
-                            <Image src="/logo/logo.webp" alt="Autonet" width={40} height={40} />
+                        <div className="circulo-logo shrink-0">
+                            <Image src="/logo/logo.webp" alt="Autonet" width={36} height={36} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
                         </div>
                         <div className="textos-logo">
-                            <span className="titulo-logo font-display">
+                            <span className="titulo-logo font-display text-base sm:text-xl">
                                 AUTONET
                             </span>
-                            <span className="subtitulo-logo">
-                                Limpieza de Coches
+                            <span className="subtitulo-logo hidden xs:block text-[8px] sm:text-[9px]">
+                                {t("nav.logoSubtitle")}
                             </span>
                         </div>
                     </Link>
@@ -71,7 +70,7 @@ export default function NavBar() {
                     </nav>
 
                     {/* 3. BOTÓN RESERVA */}
-                    <div className="contenedor-boton gap-4">
+                    <div className="contenedor-boton gap-3 lg:gap-4">
                         <Link href="/reservas" className="boton-reserva">
                             {t("nav.book")}
                         </Link>
@@ -80,12 +79,13 @@ export default function NavBar() {
                     </div>
 
                     {/* BOTÓN MENÚ MÓVIL */}
-                    <div className="boton-menu-movil items-center gap-2 md:gap-4">
+                    <div className="boton-menu-movil items-center gap-1.5 sm:gap-3">
                         <LanguageToggle />
                         <ThemeToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="icono-menu-movil"
+                            className="icono-menu-movil p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+                            aria-label="Abrir menú"
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>

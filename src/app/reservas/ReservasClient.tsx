@@ -28,6 +28,7 @@ export default function ReservasClient() {
     name: "",
     email: "",
     phone: "",
+    carModel: "",
     notes: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -80,13 +81,13 @@ export default function ReservasClient() {
 
   const handleServiceSelect = (service: Service) => {
     setSelectedService(service);
-    setTimeout(() => handleNextStep(), 200); // Smooth auto-advance
+    setTimeout(() => handleNextStep(), 200);
   };
 
   const isStepValid = () => {
     if (step === 1) return selectedService !== null;
     if (step === 2) return selectedDate !== null && selectedTime !== "" && !isLoadingSlots;
-    if (step === 3) return clientInfo.name !== "" && clientInfo.email !== "" && clientInfo.phone !== "";
+    if (step === 3) return clientInfo.name.trim() !== "" && clientInfo.email.trim() !== "" && clientInfo.phone.trim() !== "" && clientInfo.carModel.trim() !== "";
     return true;
   };
 
@@ -136,13 +137,11 @@ export default function ReservasClient() {
     <>
       <NavBar />
       <main className="contenedor-principal-reservas">
-        {/* Decorative backdrop glows */}
         <div className="glow-reservas-1" />
         <div className="glow-reservas-2" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-          {/* Page Header */}
           {!isSubmitted && (
             <div className="cabecera-reservas">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
@@ -156,22 +155,19 @@ export default function ReservasClient() {
             </div>
           )}
         
-          {/* Stepper container */}
           <div className="reserva-contenedor-pasos">
 
-            {/* Steps Progress Header */}
             {!isSubmitted && <PasosProgreso step={step} />}
 
             <AnimatePresence mode="wait">
               {isSubmitted ? (
-                /* Success Screen */
                 <PantallaExito
                   selectedService={selectedService}
                   selectedDate={selectedDate}
                   selectedTime={selectedTime}
+                  clientInfo={clientInfo}
                 />
               ) : (
-                /* Stepper Forms */
                 <form onSubmit={handleSubmit}>
 
                   {step === 1 && (
@@ -215,7 +211,6 @@ export default function ReservasClient() {
                     </div>
                   )}
 
-                  {/* Actions buttons footer */}
                   <BotonesAccion
                     step={step}
                     handlePrevStep={handlePrevStep}

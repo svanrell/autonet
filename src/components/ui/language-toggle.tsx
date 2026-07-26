@@ -39,7 +39,6 @@ export function LanguageToggle() {
                 aria-label="Cambiar idioma / Select language"
             >
                 <Globe className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400 group-hover:text-blue-500" />
-                <span className="text-sm leading-none">{currentInfo.flag}</span>
                 <span className="font-display uppercase tracking-wider text-[11px] font-bold">
                     {currentInfo.short}
                 </span>
@@ -55,9 +54,6 @@ export function LanguageToggle() {
                         transition={{ duration: 0.15 }}
                         className="absolute right-0 mt-2 w-44 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl shadow-black/10 dark:shadow-black/40 py-2 z-50 overflow-hidden backdrop-blur-lg"
                     >
-                        <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-b border-zinc-100 dark:border-zinc-800/60 mb-1">
-                            Idioma / Language
-                        </div>
                         {languagesList.map((langKey) => {
                             const info = languageNames[langKey];
                             const isSelected = language === langKey;
@@ -72,7 +68,6 @@ export function LanguageToggle() {
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
-                                        <span className="text-base">{info.flag}</span>
                                         <span>{info.name}</span>
                                     </div>
                                     {isSelected && <Check className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />}

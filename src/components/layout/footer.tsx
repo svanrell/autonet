@@ -28,7 +28,7 @@ export default function Footer() {
                             </div>
                             <div className="textos-logo">
                                 <span className="titulo-logo font-display">AUTONET</span>
-                                <span className="subtitulo-logo">Limpieza de Coches</span>
+                                <span className="subtitulo-logo">{t("nav.logoSubtitle")}</span>
                             </div>
                         </Link>
                         <p className="descripcion-marca">
@@ -127,7 +127,7 @@ export default function Footer() {
                 {/* BARRA INFERIOR DE DERECHOS */}
                 <div className="barra-derechos">
                     <p className="texto-derechos">
-                        &copy; {currentYear} Autonet Limpieza de Coches. {t("footer.allRightsReserved")}
+                        &copy; {currentYear} Autonet {t("nav.logoSubtitle")}. {t("footer.allRightsReserved")}
                     </p>
                     <div className="enlaces-legales">
                         <Link href="/privacidad" className="enlace-legal">{t("footer.privacyPolicy")}</Link>

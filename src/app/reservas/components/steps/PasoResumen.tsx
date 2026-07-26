@@ -58,7 +58,7 @@ export default function PasoResumen({
           </div>
         </div>
 
-        {/* Customer contact details */}
+        {/* Customer contact & vehicle details */}
         <div className="p-5 rounded-xl border border-zinc-800/80 bg-zinc-950/40 space-y-3.5">
           <h3 className="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">{t("reservas.summary.contactDetails")}</h3>
 
@@ -74,6 +74,11 @@ export default function PasoResumen({
             <span className="text-zinc-500">{t("reservas.summary.email")}</span>
             <span className="text-white font-bold truncate max-w-[200px]">{clientInfo.email}</span>
           </div>
+          <div className="flex justify-between text-xs border-t border-zinc-900 pt-3">
+            <span className="text-zinc-400 font-bold">{t("reservas.summary.carModel")}</span>
+            <span className="text-white font-extrabold">{clientInfo.carModel}</span>
+          </div>
+
           {clientInfo.notes && (
             <div className="flex flex-col text-xs border-t border-zinc-900 pt-3">
               <span className="text-zinc-500 mb-1">{t("reservas.summary.notes")}</span>
