@@ -12,7 +12,7 @@ export const translations = {
     nav: {
       home: "Inicio",
       services: "Servicios",
-      testimonials: "Testimonios",
+      testimonials: "Reseñas",
       contact: "Contacto",
       book: "Reserva",
       logoSubtitle: "Limpieza de Coches",
@@ -289,7 +289,7 @@ export const translations = {
     nav: {
       home: "Inici",
       services: "Serveis",
-      testimonials: "Testimonis",
+      testimonials: "Ressenyes",
       contact: "Contacte",
       book: "Reserva",
       logoSubtitle: "Neteja de Cotxes",
