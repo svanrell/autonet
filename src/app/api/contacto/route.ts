@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server"; // Importa la clase para estructurar respuestas HTTP de Next.js
 import nodemailer from "nodemailer"; // Importa la librería para enviar correos electrónicos vía SMTP
 
+export const dynamic = "force-dynamic";
+
 /**
  * ==============================================================================
  * 1. SISTEMA DE LIMITACIÓN DE PETICIONES (RATE LIMITER EN MEMORIA)
@@ -133,6 +135,9 @@ export async function POST(request: Request) {
           user: smtpUser,
           pass: smtpPass,
         },
+        connectionTimeout: 10000,
+        greetingTimeout: 5000,
+        socketTimeout: 10000,
       });
 
       // Envío real del email al destinatario del negocio

@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { google } from "googleapis";
 import { services } from "@/data/services";
 
+export const dynamic = "force-dynamic";
+
+// Helper to format Google Private Key (removes quotes and unescapes \n)
+function formatPrivateKey(key: string): string {
+  return key.replace(/^["']/g, "").replace(/["']$/g, "").replace(/\\n/g, "\n");
+}
+
 // In-memory rate limiter cache
 const ipCache = new Map<string, { count: number; lastReset: number }>();
 const LIMIT = 5; // max 5 requests
@@ -41,14 +48,22 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. CSRF / Origin check
+    // 2. CSRF / Origin check (robust for Vercel proxies, www/non-www domains)
     const origin = request.headers.get("origin");
-    const host = request.headers.get("host");
-    if (origin && host && !origin.includes(host)) {
-      return NextResponse.json(
-        { error: "Acceso no autorizado (Origen no válido)." },
-        { status: 403 }
-      );
+    const host = request.headers.get("x-forwarded-host") || request.headers.get("host");
+    if (origin && host) {
+      try {
+        const originHostname = new URL(origin).hostname.replace(/^www\./, "");
+        const hostHostname = host.split(":")[0].replace(/^www\./, "");
+        if (originHostname !== hostHostname) {
+          return NextResponse.json(
+            { error: "Acceso no autorizado (Origen no válido)." },
+            { status: 403 }
+          );
+        }
+      } catch {
+        // Ignorar si el header origin no es una URL válida
+      }
     }
 
     const body = await request.json();
@@ -174,7 +189,7 @@ export async function POST(request: Request) {
     // Authenticate with Google API
     const auth = new google.auth.JWT({
       email: clientEmailEnv,
-      key: privateKeyEnv.replace(/\\n/g, "\n"),
+      key: formatPrivateKey(privateKeyEnv),
       scopes: ["https://www.googleapis.com/auth/calendar"]
     });
 
@@ -283,7 +298,7 @@ export async function GET(request: Request) {
 
     const auth = new google.auth.JWT({
       email: clientEmailEnv,
-      key: privateKeyEnv.replace(/\\n/g, "\n"),
+      key: formatPrivateKey(privateKeyEnv),
       scopes: ["https://www.googleapis.com/auth/calendar"]
     });
 
