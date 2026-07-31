@@ -161,7 +161,7 @@ export default function ScrollAnimation() {
                             <span className="frase-categoria">COMODIDAD Y EFICIENCIA</span>
                             <h2 className="frase-titulo">Listo cuando lo necesites</h2>
                             <p className="frase-descripcion">
-                                Reserva tu cita online de forma rápida y sencilla. Nos encargamos de dejarlo impecable.
+                                Servicio rápido y profesional de primera clase. Nos encargamos de dejarlo impecable.
                             </p>
                         </div>
                     </div>

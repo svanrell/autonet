@@ -5,7 +5,6 @@ import Footer from "@/components/layout/footer";
 import reviews from "@/reviews.json";
 import { Star, Quote, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 const getInitials = (name: string) => {
@@ -117,24 +116,6 @@ export default function TestimoniosClient() {
                             );
                         })}
                     </motion.div>
-
-                    {/* CTA / Reservas section */}
-                    <div className="contenedor-boton-reserva-testimonios">
-                        <div className="reserva-testimonios-contenido">
-                            <h2 className="reserva-testimonios-titulo">
-                                {t("testimonios.ctaTitle")}
-                            </h2>
-                            <p className="reserva-testimonios-desc">
-                                {t("testimonios.ctaSubtitle")}
-                            </p>
-                            <Link href="/reservas" className="boton-reserva">
-                                {t("testimonios.ctaBtn")}
-                            </Link>
-                        </div>
-                        {/* Ambient blobs */}
-                        <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-                        <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
-                    </div>
                 </div>
             </main>
             <Footer />

@@ -60,9 +60,6 @@ export default function Footer() {
                             <li>
                                 <Link href="/testimonios" className="enlace-footer">{t("nav.testimonials")}</Link>
                             </li>
-                            <li>
-                                <Link href="/contacto" className="enlace-footer">{t("nav.contact")}</Link>
-                            </li>
                         </ul>
                     </div>
 

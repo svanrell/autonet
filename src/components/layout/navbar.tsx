@@ -21,7 +21,6 @@ export default function NavBar() {
         { href: "/", label: t("nav.home") },
         { href: "/servicios", label: t("nav.services") },
         { href: "/testimonios", label: t("nav.testimonials") },
-        { href: "/contacto", label: t("nav.contact") },
     ];
 
     return (
@@ -69,11 +68,8 @@ export default function NavBar() {
                         </ul>
                     </nav>
 
-                    {/* 3. BOTÓN RESERVA */}
+                    {/* 3. CONTROLES */}
                     <div className="contenedor-boton gap-3 lg:gap-4">
-                        <Link href="/reservas" className="boton-reserva">
-                            {t("nav.book")}
-                        </Link>
                         <LanguageToggle />
                         <ThemeToggle />
                     </div>
@@ -112,16 +108,6 @@ export default function NavBar() {
                                 </Link>
                             );
                         })}
-                    </div>
-
-                    <div className="pie-menu-movil">
-                        <Link
-                            href="/reservas"
-                            onClick={() => setIsOpen(false)}
-                            className="boton-reserva-movil"
-                        >
-                            {t("nav.book")}
-                        </Link>
                     </div>
                 </div>
             )}

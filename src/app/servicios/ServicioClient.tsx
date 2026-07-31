@@ -3,7 +3,6 @@
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Image from "next/image";
-import Link from "next/link";
 import { services } from "@/data/services";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -35,15 +34,6 @@ export default function ServiciosClient() {
                                 </div>
                             )
                         })}
-                    </div>
-                    <div className="contenedor-boton-reserva-servicios">
-                        <div className="contenedor-boton-reserva-servicios-contenido">
-                            <h1>{t("serviciosPage.ctaTitle")}</h1>
-                            <p>{t("serviciosPage.ctaSubtitle")}</p>
-                            <Link href="/reservas" className="boton-reserva">{t("serviciosPage.ctaBtn")}</Link>
-                        </div>
-                        <div className="glow-blob-1" />
-                        <div className="glow-blob-2" />
                     </div>
                 </div>
             </main>
