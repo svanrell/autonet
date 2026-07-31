@@ -1,18 +1,22 @@
-# AutoNet - Plataforma de Reservas de Limpieza de Vehículos
+# AutoNet - Sitio Web Oficial de Limpieza y Detallado de Vehículos
 
-Este es un proyecto web moderno construido con **Next.js 16**, **TypeScript**, **React 19**, **Tailwind CSS**, y **Framer Motion** para la gestión y reserva online de servicios de detallado y limpieza de vehículos.
+Sitio web moderno, rápido y totalmente estático construido con **Next.js 16**, **TypeScript**, **React 19**, **Tailwind CSS 4** y **Framer Motion** para **Autonet Limpieza de Coches** en Palma de Mallorca.
 
 ---
 
 ## Características Principales
 
-* **Reserva en 4 Pasos**: Wizard de reserva online altamente dinámico, modular y animado.
-  * **Selección de Servicio**: Elige entre limpieza exterior, interior, tapicería o detallado premium.
-  * **Fecha y Hora**: Selector interactivo de días laborables disponibles (excluyendo domingos) y turnos (mañana/tarde).
-  * **Formulario de Cliente**: Recogida segura de datos personales y notas adicionales.
-  * **Resumen**: Revisión completa del servicio, costes estimados y tiempos antes de confirmar.
-* **Diseño Premium**: Interfaz moderna y oscura con efectos de resplandor, microanimaciones y transiciones fluidas.
-* **Responsive**: Totalmente optimizado para dispositivos móviles, tablets y ordenadores.
+* **Catálogo de Servicios por Tipo de Vehículo**:
+  * **Vehículo Pequeño** (Seat Ibiza, Ford Fiesta, VW Polo) – 29 €
+  * **Vehículo Mediano** (Seat León, Ford Focus, VW Golf) – 32 €
+  * **Vehículo Grande** (Skoda Octavia, Mercedes, BMW) – 33 €
+  * **Furgoneta Pequeña** (Monovolumen, Todoterreno Pequeño) – 36 € - 38 €
+  * **Todoterreno Grande** (Furgoneta Grande) – 40 €
+* **Soporte Multilingüe (i18n)**: Español (ES), Catalán (CA), Inglés (EN) y Alemán (DE).
+* **Modo Oscuro / Claro**: Detección automática y conmutador manual persistente en `localStorage`.
+* **Diseño Responsive & Accesible**: Optimizado para dispositivos móviles, tablets y ordenadores con animaciones suaves y tipografía moderna (Outfit & Montserrat).
+* **Cumplimiento Legal & Privacidad**: Páginas estáticas de Aviso Legal, Política de Privacidad y Política de Cookies adaptadas al RGPD y LSSI-CE.
+* **Ubicación en Palma**: Mapa interactivo de Google Maps integrado en el pie de página para localizar el taller.
 
 ---
 
@@ -21,38 +25,42 @@ Este es un proyecto web moderno construido con **Next.js 16**, **TypeScript**, *
 * **Framework**: [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
 * **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
 * **Librería UI**: [React 19](https://react.dev/)
-* **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
 * **Estilos**: [Tailwind CSS 4](https://tailwindcss.com/)
+* **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
 * **Iconografía**: [Lucide React](https://lucide.dev/)
 * **Gestor de Paquetes**: [pnpm](https://pnpm.io/)
 
 ---
 
-## Estructura del Proyecto (Módulos Clave)
-
-El módulo de reservas se ha modularizado para evitar la complejidad y el acoplamiento:
+## Estructura del Proyecto
 
 ```text
-src/app/reservas/
-├── page.tsx                  # Punto de entrada de la ruta /reservas
-├── ReservasClient.tsx        # Orquestador del flujo y estado de reservas
-├── types.ts                  # Declaraciones de tipos e interfaces de datos
-├── utils.ts                  # Funciones de utilidad (fechas/horas)
-└── components/               # Subcomponentes específicos de cada paso
-    ├── PasosProgreso.tsx     # Indicador de progreso (pasos 1-4)
-    ├── PasoServicio.tsx      # Paso 1: Selección de Servicio
-    ├── PasoFechaHora.tsx     # Paso 2: Selección de Fecha y Hora
-    ├── PasoDatos.tsx         # Paso 3: Datos de Contacto
-    ├── PasoResumen.tsx       # Paso 4: Resumen de Reserva
-    ├── PantallaExito.tsx     # Mensaje de éxito tras confirmación
-    └── BotonesAccion.tsx     # Controladores de navegación (Atrás / Siguiente)
+src/
+├── app/
+│   ├── layout.tsx             # Layout raíz (providers, fuentes y favicon)
+│   ├── page.tsx               # Página de Inicio (Hero, Características, Historia)
+│   ├── servicios/             # Catálogo de servicios por tipo de vehículo
+│   ├── testimonios/           # Reseñas y opiniones de clientes
+│   ├── privacidad/            # Política de Privacidad
+│   ├── cookies/               # Política de Cookies
+│   └── legal/                 # Aviso Legal
+├── components/
+│   ├── animation/             # Componentes de animación scroll
+│   ├── layout/                # Navbar, Footer, Hero, Features, Nuestra Historia
+│   └── ui/                    # Botones, Toggles de idioma y tema, Iframe
+├── context/
+│   └── LanguageContext.tsx    # Contexto global de idioma
+├── data/
+│   └── services.ts            # Datos estáticos de servicios y precios
+└── locales/
+    └── translations.ts        # Diccionarios de traducción (ES, CA, EN, DE)
 ```
 
 ---
 
 ## Configuración y Ejecución
 
-Asegúrate de tener instalado [Node.js](https://nodejs.org/) y [pnpm](https://pnpm.io/).
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 20+) y [pnpm](https://pnpm.io/).
 
 ### 1. Instalar Dependencias
 ```bash
@@ -63,14 +71,14 @@ pnpm install
 ```bash
 pnpm dev
 ```
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ### 3. Compilar para Producción
 ```bash
 pnpm build
 ```
 
-### 4. Ejecutar Linter y Validar Código
+### 4. Iniciar Servidor de Producción
 ```bash
-pnpm lint
+pnpm start
 ```
