@@ -54,7 +54,8 @@ export const translations = {
     },
     serviciosPage: {
       title: "Nuestros Servicios",
-      subtitle: "En Autonet, nos esforzamos por ofrecer servicios de la más alta calidad para satisfacer todas las necesidades de nuestros clientes. A continuación, te presentamos nuestros servicios:",
+      subtitle: "Servicio completo de limpieza interior y exterior para todo tipo de vehículos.",
+      serviceTypeHeader: "Servicio Limpieza Interior y Exterior",
     },
     testimonios: {
       badge: "Opiniones de nuestros clientes",
@@ -89,7 +90,7 @@ export const translations = {
       lastUpdated: "Última actualización",
       intro: "Es práctica común en casi todos los sitios web profesionales que este sitio utilice cookies, que son pequeños archivos que se descargan en su ordenador, para mejorar su experiencia. Esta página describe qué información recopilan, cómo la usamos y por qué a veces necesitamos almacenar estas cookies.",
       s1Title: "1. ¿Qué son las cookies?",
-      s1Body: "Una cookie es un pequeño archivo de texto que un sitio web almacena en su ordenador o dispositivo móvil cuando usted visita el sitio. Permite al sitio web recordar sus acciones y preferencias (como inicio de sesión, idioma, tamaño de letra y otras preferencias de visualización) durante un período de tiempo, para que no tenga que volver a introducirlas cada vez que regrese al sitio o navegue de una página a otra.",
+      s1Body: "Una cookie es un pequeño archivo de texto que un sitio web almacena en su ordenador o dispositivo móvil cuando usted visita el sitio. Permite al sitio web recordar sus acciones y preferences (como inicio de sesión, idioma, tamaño de letra y otras preferencias de visualización) durante un período de tiempo, para que no tenga que volver a introducirlas cada vez que regrese al sitio o navegue de una página a otra.",
       s2Title: "2. ¿Cómo usamos las cookies?",
       s2Body: "Utilizamos cookies por varios motivos detallados a continuación. Desafortunadamente, en la mayoría de los casos no existen opciones estándar en la industria para desactivar las cookies sin desactivar por completo la funcionalidad y las características que añaden a este sitio. Se recomienda dejar activadas todas las cookies si no está seguro de si las necesita o no, en caso de que se utilicen para proporcionar un servicio que usted utiliza.",
       s3Title: "3. Las cookies que instalamos",
@@ -137,21 +138,25 @@ export const translations = {
       legalNotice: "Aviso Legal",
     },
     services: {
-      exterior: {
-        name: "Limpieza Exterior",
-        description: "Lavado a mano ecológico, secado con microfibra, limpieza profunda de llantas y acondicionamiento de neumáticos.",
+      pequeno: {
+        name: "Vehículo Pequeño",
+        description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
       },
-      interior: {
-        name: "Limpieza Interior",
-        description: "Aspirado completo de alfombras y asientos, limpieza de plásticos, salpicadero, cristales y desinfección de conductos.",
+      mediano: {
+        name: "Vehículo Mediano",
+        description: "Seat León, Ford Focus, Volkswagen Golf",
       },
-      tapiceria: {
-        name: "Limpieza de Tapicerías",
-        description: "Lavado con inyección y extracción para eliminar manchas difíciles en asientos, alfombrillas e hidratación de tapicería.",
+      grande: {
+        name: "Vehículo Grande",
+        description: "Skoda Octavia, Mercedes, BMW",
       },
-      premium: {
-        name: "Detallado Premium (Full)",
-        description: "Tratamiento completo exterior e interior con descontaminado de pintura, encerado cerámico y tratamiento protector de plásticos.",
+      furgoneta: {
+        name: "Furgoneta Pequeña",
+        description: "Monovolumen, Todoterreno Pequeño",
+      },
+      todoterreno: {
+        name: "Todoterreno Grande",
+        description: "Furgoneta Grande",
       },
     },
   },
@@ -284,21 +289,25 @@ export const translations = {
       legalNotice: "Avís Legal",
     },
     services: {
-      exterior: {
-        name: "Neteja Exterior",
-        description: "Rentat a mà ecològic, eixugat amb microfibra, neteja profunda de llantes i condicionament de pneumàtics.",
+      pequeno: {
+        name: "Vehicle Petit",
+        description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
       },
-      interior: {
-        name: "Neteja Interior",
-        description: "Aspirat complet de catifes i seients, neteja de plàstics, tauler de control, vidres i desinfecció de conductes.",
+      mediano: {
+        name: "Vehicle Mitjà",
+        description: "Seat León, Ford Focus, Volkswagen Golf",
       },
-      tapiceria: {
-        name: "Neteja de Tapisseries",
-        description: "Rentat amb injecció i extracció per eliminar taques difícils en seients, catifetes i hidratació de tapisseria.",
+      grande: {
+        name: "Vehicle Gran",
+        description: "Skoda Octavia, Mercedes, BMW",
       },
-      premium: {
-        name: "Detallat Premium (Full)",
-        description: "Tractament complet exterior i interior amb descontaminat de pintura, encerat ceràmic i tractament protector de plàstics.",
+      furgoneta: {
+        name: "Furgoneta Petita",
+        description: "Monovolum, Todoterreny Petit",
+      },
+      todoterreno: {
+        name: "Todoterreny Gran",
+        description: "Furgoneta Gran",
       },
     },
   },
@@ -431,21 +440,25 @@ export const translations = {
       legalNotice: "Legal Notice",
     },
     services: {
-      exterior: {
-        name: "Exterior Cleaning",
-        description: "Eco-friendly hand wash, microfiber drying, deep wheel cleaning, and tire conditioning.",
+      pequeno: {
+        name: "Small Vehicle",
+        description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
       },
-      interior: {
-        name: "Interior Cleaning",
-        description: "Complete vacuuming of carpets and seats, cleaning of plastics, dashboard, windows, and vent disinfection.",
+      mediano: {
+        name: "Medium Vehicle",
+        description: "Seat León, Ford Focus, Volkswagen Golf",
       },
-      tapiceria: {
-        name: "Upholstery Cleaning",
-        description: "Injection and extraction washing to remove stubborn stains on seats, mats, and upholstery hydration.",
+      grande: {
+        name: "Large Vehicle",
+        description: "Skoda Octavia, Mercedes, BMW",
       },
-      premium: {
-        name: "Premium Detailing (Full)",
-        description: "Complete exterior and interior treatment with paint decontamination, ceramic waxing, and protective plastic treatment.",
+      furgoneta: {
+        name: "Small Van",
+        description: "Minivan, Small SUV",
+      },
+      todoterreno: {
+        name: "Large SUV",
+        description: "Large Van",
       },
     },
   },
@@ -495,7 +508,8 @@ export const translations = {
     },
     serviciosPage: {
       title: "Unsere Leistungen",
-      subtitle: "Bei Autonet bieten wir erstklassige Dienstleistungen für alle Bedürfnisse Ihres Fahrzeugs. Hier sind unsere Angebote:",
+      subtitle: "Komplette Innen- und Außenreinigung für alle Fahrzeugtypen.",
+      serviceTypeHeader: "Innen- und Außenreinigungsservice",
     },
     testimonios: {
       badge: "Kundenbewertungen",
@@ -572,21 +586,25 @@ export const translations = {
       legalNotice: "Impressum",
     },
     services: {
-      exterior: {
-        name: "Außenreinigung",
-        description: "Ökologische Handwäsche, Trocknung mit Mikrofaser, Tiefenreinigung der Felgen und Reifenpflege.",
+      pequeno: {
+        name: "Kleinwagen",
+        description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
       },
-      interior: {
-        name: "Innenreinigung",
-        description: "Vollständiges Saugen von Teppichen und Sitzen, Reinigung von Kunststoffen, Armaturenbrett und Scheiben.",
+      mediano: {
+        name: "Mittelklassewagen",
+        description: "Seat León, Ford Focus, Volkswagen Golf",
       },
-      tapiceria: {
-        name: "Polsterreinigung",
-        description: "Sprühextraktionswäsche zur Entfernung hartnäckiger Flecken auf Sitzen und Fußmatten.",
+      grande: {
+        name: "Großwagen / Oberklasse",
+        description: "Skoda Octavia, Mercedes, BMW",
       },
-      premium: {
-        name: "Premium Aufbereitung (Full)",
-        description: "Komplettbehandlung außen und innen mit Lackdekontamination, Keramikwachs und Kunststoffschutz.",
+      furgoneta: {
+        name: "Kleiner Transporter",
+        description: "Van, Kleiner SUV",
+      },
+      todoterreno: {
+        name: "Großer SUV",
+        description: "Großer Transporter",
       },
     },
   },
