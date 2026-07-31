@@ -1,6 +1,3 @@
-import { Car, Truck, ShieldCheck } from "lucide-react";
-import React from "react";
-
 export interface Service {
   id: string;
   name: string;
@@ -15,28 +12,28 @@ export const services: Service[] = [
     name: "Vehículo Pequeño",
     description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
     price: "29 €",
-    imagen: "/images/coche1.webp"
+    imagen: "/images/coche3.webp"
   },
   {
     id: "mediano",
     name: "Vehículo Mediano",
     description: "Seat León, Ford Focus, Volkswagen Golf",
     price: "32 €",
-    imagen: "/images/coche2.webp"
+    imagen: "/images/coche1.webp"
   },
   {
     id: "grande",
     name: "Vehículo Grande",
     description: "Skoda Octavia, Mercedes, BMW",
     price: "33 €",
-    imagen: "/images/coche3.webp"
+    imagen: "/images/coche4.webp"
   },
   {
     id: "furgoneta",
     name: "Furgoneta Pequeña",
     description: "Monovolumen, Todoterreno Pequeño",
     price: "36 € - 38 €",
-    imagen: "/images/coche4.webp"
+    imagen: "/images/coche2.webp"
   },
   {
     id: "todoterreno",
