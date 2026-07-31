@@ -50,12 +50,11 @@ export const translations = {
       p1: "Autonet nació de una insatisfacción con el lavado convencional de coches. Creíamos que los vehículos merecían algo mejor que los rodillos mecánicos agresivos que rayan la pintura y los químicos industriales abrasivos que deterioran los acabados con el tiempo.",
       p2: "Por eso, decidimos redefinir el concepto de limpieza automotriz. Nos especializamos en el detallado (detailing) ecológico de alta gama. Esto significa que analizamos el estado de cada superficie (cuero, alcántara, plásticos, pintura metálica) para aplicar el tratamiento perfecto que no solo limpia, sino que nutre, acondiciona y protege frente a los rayos UV, la lluvia ácida y la contaminación diaria.",
       p3: "Entendemos que tu coche es una de tus mayores inversiones y una parte esencial de tu día a día. Nuestro equipo de apasionados del motor trata cada automóvil como si fuera propio, combinando técnicas artesanales meticulosas con fórmulas poliméricas y nanotecnología avanzada. El resultado es un acabado con efecto espejo y un interior que recupera el tacto y el aroma a nuevo.",
-      btn: "Ver Todos los Servicios",
-    },
-    serviciosPage: {
+       serviciosPage: {
       title: "Nuestros Servicios",
       subtitle: "Servicio completo de limpieza interior y exterior para todo tipo de vehículos.",
       serviceTypeHeader: "Servicio Limpieza Interior y Exterior",
+      priceLabel: "Precio:",
     },
     testimonios: {
       badge: "Opiniones de nuestros clientes",
@@ -141,22 +140,27 @@ export const translations = {
       pequeno: {
         name: "Vehículo Pequeño",
         description: "Seat Ibiza, Ford Fiesta, Volkswagen Polo",
+        price: "29 €",
       },
       mediano: {
         name: "Vehículo Mediano",
         description: "Seat León, Ford Focus, Volkswagen Golf",
+        price: "32 €",
       },
       grande: {
         name: "Vehículo Grande",
         description: "Skoda Octavia, Mercedes, BMW",
+        price: "33 €",
       },
       furgoneta: {
         name: "Furgoneta Pequeña",
         description: "Monovolumen, Todoterreno Pequeño",
+        price: "36 € - 38 €",
       },
       todoterreno: {
         name: "Todoterreno Grande",
         description: "Furgoneta Grande",
+        price: "40 €",
       },
     },
   },

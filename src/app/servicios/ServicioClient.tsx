@@ -28,10 +28,11 @@ export default function ServiciosClient() {
                             return (
                                 <div key={index} className="contenedor-servicio">
                                     <div className="contenedor-servicio-texto">
-                                        <div className="flex items-start justify-between gap-4 mb-3">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                                             <h2>{localizedName !== `services.${servicio.id}.name` ? localizedName : servicio.name}</h2>
-                                            <span className="shrink-0 px-3.5 py-1.5 rounded-full bg-blue-600/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400 font-extrabold text-base md:text-lg border border-blue-500/20 shadow-xs">
-                                                {servicio.price}
+                                            <span className="inline-flex items-center gap-1.5 self-start sm:self-auto px-4 py-1.5 rounded-full bg-blue-600 text-white font-extrabold text-base md:text-lg shadow-md border border-blue-500">
+                                                <span className="text-xs uppercase tracking-wider font-medium opacity-90">{t("serviciosPage.priceLabel") || "Precio:"}</span>
+                                                <span>{servicio.price}</span>
                                             </span>
                                         </div>
                                         <p>{localizedDescription !== `services.${servicio.id}.description` ? localizedDescription : servicio.description}</p>
