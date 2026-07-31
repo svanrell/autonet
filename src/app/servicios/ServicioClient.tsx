@@ -25,8 +25,12 @@ export default function ServiciosClient() {
                         {services.map((servicio, index) => {
                             const localizedName = t(`services.${servicio.id}.name`);
                             const localizedDescription = t(`services.${servicio.id}.description`);
+                            const isLast = index === services.length - 1;
                             return (
-                                <div key={index} className="contenedor-servicio">
+                                <div 
+                                    key={index} 
+                                    className={`contenedor-servicio ${isLast ? "md:col-span-2 md:max-w-xl md:mx-auto w-full" : ""}`}
+                                >
                                     <div className="contenedor-servicio-texto">
                                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                                             <h2>{localizedName !== `services.${servicio.id}.name` ? localizedName : servicio.name}</h2>
