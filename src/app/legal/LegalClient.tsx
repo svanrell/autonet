@@ -39,7 +39,6 @@ export default function LegalClient() {
               <li>{t("legal.s1Company")}</li>
               <li>{t("legal.s1Cif")}</li>
               <li>{t("legal.s1Address")}</li>
-              <li>{t("legal.s1Email")}</li>
             </ul>
 
             <h2 className="text-lg md:text-xl font-bold mt-8 mb-4 text-blue-600 dark:text-blue-400 font-display">

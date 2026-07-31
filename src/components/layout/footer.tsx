@@ -6,7 +6,6 @@ import Iframe from "../ui/iframe";
 import { useLanguage } from "@/context/LanguageContext";
 
 import {
-    Mail,
     Phone,
     ShieldCheck
 } from "lucide-react";
@@ -93,17 +92,6 @@ export default function Footer() {
                                     src="/contacto/telefono.svg" 
                                     alt="Telefono de contacto" 
                                     width={120} 
-                                    height={16} 
-                                    style={{ height: "auto" }}
-                                    className="object-contain dark:invert" 
-                                />
-                            </li>
-                            <li className="contacto-item">
-                                <Mail size={16} className="icono-contacto" />
-                                <Image 
-                                    src="/contacto/email.svg" 
-                                    alt="Email de contacto" 
-                                    width={187} 
                                     height={16} 
                                     style={{ height: "auto" }}
                                     className="object-contain dark:invert" 
