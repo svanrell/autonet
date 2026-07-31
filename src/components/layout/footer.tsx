@@ -23,7 +23,7 @@ export default function Footer() {
                     <div className="columna-footer info-marca">
                         <Link href="/" className="logo-completo-footer group">
                             <div className="circulo-logo-footer">
-                                <Image src="/logo/logo.webp" alt="Autonet" width={36} height={36} />
+                                <Image src="/logo/logo.svg" alt="Autonet" width={36} height={36} />
                             </div>
                             <div className="textos-logo">
                                 <span className="titulo-logo font-display">AUTONET</span>

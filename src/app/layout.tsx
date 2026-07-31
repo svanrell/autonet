@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     template: "%s"
   },
   description: "Limpieza y detallado ecológico de vehículos a domicilio y local físico.",
+  icons: {
+    icon: "/logo/logo.svg",
+  },
 };
 
 export const viewport: Viewport = {

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Wheels / Tires -->
+  <rect x="52" y="146" width="24" height="34" rx="10" fill="#0066FF" />
+  <rect x="124" y="146" width="24" height="34" rx="10" fill="#0066FF" />
+
+  <!-- Roof & Windshield -->
+  <path d="M 52,86 C 56,44 72,32 100,32 C 128,32 144,44 148,86 Z" 
+        fill="#E8F3FF" 
+        stroke="#0066FF" 
+        stroke-width="9" 
+        stroke-linejoin="round" 
+        stroke-linecap="round" />
+
+  <!-- Windshield Wipers -->
+  <path d="M 68,74 L 102,66" stroke="#0066FF" stroke-width="5.5" stroke-linecap="round" />
+  <path d="M 112,74 L 140,66" stroke="#0066FF" stroke-width="5.5" stroke-linecap="round" />
+
+  <!-- Main Body -->
+  <rect x="30" y="80" width="140" height="74" rx="30" 
+        fill="#E8F3FF" 
+        stroke="#0066FF" 
+        stroke-width="9" 
+        stroke-linejoin="round" />
+
+  <!-- Headlights -->
+  <circle cx="62" cy="117" r="14" fill="#FFFFFF" stroke="#0066FF" stroke-width="7" />
+  <circle cx="138" cy="117" r="14" fill="#FFFFFF" stroke="#0066FF" stroke-width="7" />
+
+  <!-- Smile / Grille -->
+  <path d="M 80,127 Q 100,138 120,127" stroke="#0066FF" stroke-width="6.5" stroke-linecap="round" fill="none" />
+</svg>

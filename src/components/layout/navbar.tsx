@@ -31,7 +31,7 @@ export default function NavBar() {
                     {/* 1. LOGO */}
                     <Link href="/" className="logo-completo group">
                         <div className="circulo-logo shrink-0">
-                            <Image src="/logo/logo.webp" alt="Autonet" width={36} height={36} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
+                            <Image src="/logo/logo.svg" alt="Autonet" width={36} height={36} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
                         </div>
                         <div className="textos-logo">
                             <span className="titulo-logo font-display text-base sm:text-xl">
